@@ -64,6 +64,7 @@
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="designSim.html" />
     <Content Include="Fallback.html" />
     <Content Include="packages.config" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
@@ -72,6 +73,11 @@
     <Content Include="asmsim.appcache" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\asmsim\datacontext.js" />
+    <Content Include="Scripts\asmsim\data\bodyParts.js" />
+    <Content Include="Scripts\asmsim\data\headParts.js" />
+    <Content Include="Scripts\asmsim\data\legParts.js" />
+    <Content Include="Scripts\asmsim\data\armParts.js" />
+    <Content Include="Scripts\asmsim\debug.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
