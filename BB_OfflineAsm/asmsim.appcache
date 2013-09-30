@@ -1,0 +1,15 @@
+﻿CACHE MANIFEST
+# version 2013-09-29 v0
+
+CACHE:
+index.html
+Scripts/jquery-2.0.3.min.js
+Scripts/knockout-2.3.0.js
+Scripts/asmsim/datacontext.js
+Scripts/asmsim/ViewModel.js
+
+NETWORK:
+*
+
+FALLBACK:
+Fallback.html
