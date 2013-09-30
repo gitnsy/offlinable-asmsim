@@ -1,8 +1,14 @@
 ﻿<!DOCTYPE html>
-<html manifest="asmsim.appcache">
+<!--<html manifest="asmsim.appcache"> onにしてると最初にとったファイル使いっぱなしでやりにくい -->
+<html>
 <head>
     <title>BB-AsmSim</title>
     <link rel="stylesheet" href="css/default.css" />
+    <style>
+        li {
+            display:inline;
+        }
+    </style>
 </head>
 <body>
     <h1>BB-AsmSim</h1>
@@ -15,7 +21,6 @@
         <div class="armor"></div>
         <div class="speed">
             <div class="assult" data-bind="template: { name: 'speedSummary', data: { title: 'assult',capacity:4000, totalWeight: totalWeight } }"></div>
-            <div class="assult"></div>
             <div class="heavy"></div>
             <div class="support"></div>
             <div class="snipper"></div>
@@ -23,28 +28,27 @@
     </div>
 
     <div id="frame">
-        <div class="head" data-bind="template: { name: 'frameParts', data: { title: 'head', list: headList, target: selectedHead } }"></div>
+        <div class="head" >
+            <div data-bind="template: { name: 'frameParts', data: { title: 'head', list: headList, target: selectedHead } }"></div>
+            <div>
+                <p>weight:<span data-bind="text: selectedHead().weight"></span></p>
+                <p>armor:<span data-bind="text: selectedHead().armor"></span></p>
+                <p>shotAdjust:<span data-bind="text: selectedHead().shotAdjust"></span></p>
+                <p>search:<span data-bind="text: selectedHead().search"></span></p>
+                <p>lockon:<span data-bind="text: selectedHead().lockon"></span></p>
+                <p>chipCapacity:<span data-bind="text: selectedHead().chipCapacity"></span></p>
+            </div>
+        </div>
         <div class="body" data-bind="template: { name: 'frameParts', data: { title: 'body', list: bodyList, target: selectedBody } }"></div>
         <div class="arm" data-bind="template: { name: 'frameParts', data: { title: 'arm', list: armList, target: selectedArm } }"></div>
         <div class="leg" data-bind="template: { name: 'frameParts', data: { title: 'leg', list: legList, target: selectedLeg } }"></div>
-    </div>
-
-    <div id="weapon">
-        <div class="assult">
-            <div class="main"></div>
-            <div class="sub"></div>
-            <div class="assist"></div>
-            <div class="sp"></div>
-        </div>
-        <div class="heavy"></div>
-        <div class="support"></div>
-        <div class="snipper"></div>
     </div>
 
     <script src="Scripts/jquery-2.0.3.min.js"></script>
     <script src="Scripts/knockout-2.3.0.js"></script>
     <script src="Scripts/asmsim/datacontext.js"></script>
     <script src="Scripts/asmsim/ViewModel.js"></script>
+    <script src="Scripts/asmsim/data/headparts.js"></script>
 
     <script type="text/html" id="frameParts">
         <h2 data-bind="text: title" />
@@ -54,6 +58,12 @@
     <script type="text/html" id="speedSummary">
         <h2 data-bind="text:title"></h2>
         <span data-bind="text:totalWeight"></span>/<span data-bind="text:capacity"></span>
+        <div class="weapon">
+            <div class="main">main:<span></span></div>
+            <div class="sub">sub:<span></span></div>
+            <div class="assist">assist:<span></span></div>
+            <div class="sp">sp:<span></span></div>
+        </div>
     </script>
 
     <script>
