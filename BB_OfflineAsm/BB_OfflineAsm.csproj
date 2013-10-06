@@ -55,8 +55,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />-->
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="about.html" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
@@ -70,12 +72,29 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="asmsim.appcache" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\asmsim\calc.js" />
     <Content Include="Scripts\asmsim\datacontext.js" />
+    <Content Include="Scripts\asmsim\data\assaultmain.js" />
     <Content Include="Scripts\asmsim\data\bodyParts.js" />
     <Content Include="Scripts\asmsim\data\headParts.js" />
     <Content Include="Scripts\asmsim\data\legParts.js" />
     <Content Include="Scripts\asmsim\data\armParts.js" />
     <Content Include="Scripts\asmsim\data\realvalue.js" />
+    <Content Include="Scripts\asmsim\data\assaultsub.js" />
+    <Content Include="Scripts\asmsim\data\assaultsp.js" />
+    <Content Include="Scripts\asmsim\data\assaultassist.js" />
+    <Content Include="Scripts\asmsim\data\heavyassist.js" />
+    <Content Include="Scripts\asmsim\data\heavymain.js" />
+    <Content Include="Scripts\asmsim\data\heavysp.js" />
+    <Content Include="Scripts\asmsim\data\heavysub.js" />
+    <Content Include="Scripts\asmsim\data\supportassist.js" />
+    <Content Include="Scripts\asmsim\data\supportmain.js" />
+    <Content Include="Scripts\asmsim\data\supportsp.js" />
+    <Content Include="Scripts\asmsim\data\supportsub.js" />
+    <Content Include="Scripts\asmsim\data\sniperassist.js" />
+    <Content Include="Scripts\asmsim\data\snipermain.js" />
+    <Content Include="Scripts\asmsim\data\snipersp.js" />
+    <Content Include="Scripts\asmsim\data\snipersub.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
