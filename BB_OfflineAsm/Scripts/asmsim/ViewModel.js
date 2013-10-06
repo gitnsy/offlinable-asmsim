@@ -44,7 +44,7 @@ var asmsim = asmsim || {};
         });
 
         this.assultWeight = ko.computed(function () {
-            return self.totalWeight() + 100;
+            return self.totalWeight();
         });
 
         this.armorAvarage = ko.computed(function () {
@@ -64,7 +64,11 @@ var asmsim = asmsim || {};
                 + self.selectedBody().chipCapacity * 10
                 + self.selectedArm().chipCapacity * 10
                 + self.selectedLeg().chipCapacity * 10) / 10;
-        })
+        });
+
+        this.capacity = ko.computed(function () {
+            return asmsim.data.weightCapacityRealvalue[self.selectedLeg().weightCapacity];
+        });
     }
 
 })(asmsim, new asmsim.datacontext());

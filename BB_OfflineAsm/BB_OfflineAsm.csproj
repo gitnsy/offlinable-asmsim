@@ -55,8 +55,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />-->
-    <Folder Include="Scripts\asmsim\data\chip\action\" />
-    <Folder Include="Scripts\asmsim\data\weapon\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
@@ -77,7 +75,7 @@
     <Content Include="Scripts\asmsim\data\headParts.js" />
     <Content Include="Scripts\asmsim\data\legParts.js" />
     <Content Include="Scripts\asmsim\data\armParts.js" />
-    <Content Include="Scripts\asmsim\debug.js" />
+    <Content Include="Scripts\asmsim\data\realvalue.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
@@ -85,13 +83,6 @@
     <Content Include="Scripts\knockout-2.3.0.debug.js" />
     <Content Include="Scripts\knockout-2.3.0.js" />
     <Content Include="Scripts\asmsim\ViewModel.js" />
-    <Content Include="Scripts\asmsim\data\frame\arm\cooger1.js" />
-    <Content Include="Scripts\asmsim\data\frame\arm\cooger2.js" />
-    <Content Include="Scripts\asmsim\data\frame\arm\cooger3.js" />
-    <Content Include="Scripts\asmsim\data\frame\arm\cooger4.js" />
-    <Content Include="Scripts\asmsim\data\frame\body\cooger1.js" />
-    <Content Include="Scripts\asmsim\data\frame\head\cooger1.js" />
-    <Content Include="Scripts\asmsim\data\frame\leg\cooger1.js" />
     <Content Include="Scripts\_reference.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -101,8 +92,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="css\default.css" />
-    <None Include="lib\default.js" />
+    <None Include="css\top.css" />
     <None Include="index.html" />
   </ItemGroup>
   <ItemGroup>

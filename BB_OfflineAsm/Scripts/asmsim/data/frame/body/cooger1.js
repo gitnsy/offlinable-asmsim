@@ -1,1 +1,0 @@
-﻿var cooger = {Bland:"Cooger",Name:"クーガーI型",armor:"",recoil:"",reload:"",change:"" }

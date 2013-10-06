@@ -1,18 +1,10 @@
 ﻿<!DOCTYPE html>
-<!--<html manifest="asmsim.appcache"> onにしてると最初にとったファイル使いっぱなしでやりにくい -->
-<html>
+<html manifest="asmsim.appcache">
 <head>
     <title>BB-AsmSim</title>
-    <link rel="stylesheet" href="css/default.css" />
-    <style>
-        li {
-            float:left;
-            display:inline;
-            list-style: none outside none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/top.css" />
 
-        <script src="Scripts/jquery-2.0.3.min.js"></script>
+    <script src="Scripts/jquery-2.0.3.min.js"></script>
     <script src="Scripts/knockout-2.3.0.js"></script>
     <script src="Scripts/asmsim/datacontext.js"></script>
     <script src="Scripts/asmsim/ViewModel.js"></script>
@@ -20,6 +12,7 @@
     <script src="Scripts/asmsim/data/armParts.js"></script>
     <script src="Scripts/asmsim/data/bodyParts.js"></script>
     <script src="Scripts/asmsim/data/legParts.js"></script>
+    <script src="Scripts/asmsim/data/realvalue.js"></script>
 
     <script type="text/html" id="frameParts">
         <h2 data-bind="text: title" />
@@ -28,7 +21,7 @@
 
     <script type="text/html" id="speedSummary">
         <h2 data-bind="text: title"></h2>
-        <span data-bind="text: totalWeight"></span>/<span data-bind="text: capacity"></span>
+        <span data-bind="text: totalWeight"></span>/<span data-bind="    text:capacity"></span>
         <div class="weapon">
             <div class="main">main:<span></span></div>
             <div class="sub">sub:<span></span></div>
@@ -53,78 +46,60 @@
         body:<span data-bind="text: selectedBody().name"></span><br>
         arm:<span data-bind="text: selectedArm().name"></span><br>
         leg:<span data-bind="text: selectedLeg().name"></span><br>
-        <span data-bind="text:totalChipCapacity">content</span><br>
-        <span data-bind="text:armorAvarage">content</span><br>
+        <span data-bind="text: totalChipCapacity">content</span><br>
+        <span data-bind="text: armorAvarage">content</span><br>
         <div class="armor"></div>
         <div class="speed">
-            <ul>
-                <li>
-                    <span class="assult" data-bind="template: { name: 'speedSummary', data: { title: 'assult', capacity: 4000, totalWeight: assultWeight } }"></span>
-                </li>
-                <li>
-                    <span class="heavy" data-bind="template: { name: 'speedSummary', data: { title: 'heavy', capacity: 4000, totalWeight: totalWeight } }"></span>
-                </li>
-                <li>
-                    <span class="support"></span>
-                </li>
-                <li>
-                    <span class="snipper"></span>
-                </li>
-            </ul>
+            <span class="assult" data-bind="template: { name: 'speedSummary', data: { title: 'assult',capacity:capacity, totalWeight: assultWeight } }"></span>
+            <span class="heavy" data-bind="template: { name: 'speedSummary', data: { title: 'heavy', capacity: capacity, totalWeight: totalWeight } }"></span>
+            <span class="support"></span>
+            <span class="snipper"></span>
         </div>
     </div>
 
     <div id="frame">
-        <ul>
-            <li>
-                <div class="head">
-                    <div data-bind="template: { name: 'frameParts', data: { title: 'head', list: headList, target: selectedHead } }"></div>
-                    <div>
-                        <p>weight:<span data-bind="text: selectedHead().weight"></span></p>
-                        <p>armor:<span data-bind="text: selectedHead().armor"></span></p>
-                        <p>shotAdjust:<span data-bind="text: selectedHead().shotAdjust"></span></p>
-                        <p>search:<span data-bind="text: selectedHead().search"></span></p>
-                        <p>lockon:<span data-bind="text: selectedHead().lockon"></span></p>
-                        <p>chipCapacity:<span data-bind="text: selectedHead().chipCapacity"></span></p>
-                    </div>
-                </div>
-
-            </li>
-            <li>
-                <div class="body" data-bind="template: { name: 'frameParts', data: { title: 'body', list: bodyList, target: selectedBody } }"></div>
-                    <div>
-                        <p>weight:<span data-bind="text: selectedBody().weight"></span></p>
-                        <p>armor:<span data-bind="text: selectedBody().armor"></span></p>
-                        <p>booster:<span data-bind="text: selectedBody().boosterGen"></span></p>
-                        <p>sp:<span data-bind="text: selectedBody().spGen"></span></p>
-                        <p>AreaChange:<span data-bind="text: selectedBody().areaChange"></span></p>
-                        <p>chipCapacity:<span data-bind="text: selectedBody().chipCapacity"></span></p>
-                    </div>
-            </li>
-            <li>
-                <div class="arm" data-bind="template: { name: 'frameParts', data: { title: 'arm', list: armList, target: selectedArm } }"></div>
-                    <div>
-                        <p>weight:<span data-bind="text: selectedArm().weight"></span></p>
-                        <p>armor:<span data-bind="text: selectedArm().armor"></span></p>
-                        <p>recoil:<span data-bind="text: selectedArm().recoil"></span></p>
-                        <p>reload:<span data-bind="text: selectedArm().reload"></span></p>
-                        <p>WeaponChange:<span data-bind="text: selectedArm().weaponChange"></span></p>
-                        <p>chipCapacity:<span data-bind="text: selectedArm().chipCapacity"></span></p>
-                    </div>
-            </li>
-            <li>
-                <div class="leg" data-bind="template: { name: 'frameParts', data: { title: 'leg', list: legList, target: selectedLeg } }"></div>
-                    <div>
-                        <p>weight:<span data-bind="text: selectedLeg().weight"></span></p>
-                        <p>armor:<span data-bind="text: selectedLeg().armor"></span></p>
-                        <p>walk:<span data-bind="text: selectedLeg().walk"></span></p>
-                        <p>dash:<span data-bind="text: selectedLeg().dash"></span></p>
-                        <p>WeightCapacity:<span data-bind="text: selectedLeg().weightCapacity"></span></p>
-                        <p>chipCapacity:<span data-bind="text: selectedLeg().chipCapacity"></span></p>
-                    </div>
-            </li>
-
-        </ul>
+        <div class="head">
+            <div data-bind="template: { name: 'frameParts', data: { title: 'head', list: headList, target: selectedHead } }"></div>
+            <div>
+                <p>重量:<span data-bind="text: selectedHead().weight"></span></p>
+                <p>装甲:<span data-bind="text: selectedHead().armor"></span></p>
+                <p>射撃補正:<span data-bind="text: selectedHead().shotAdjust"></span></p>
+                <p>索敵:<span data-bind="text: selectedHead().search"></span></p>
+                <p>ロックオン:<span data-bind="text: selectedHead().lockon"></span></p>
+                <p>チップ容量:<span data-bind="text: selectedHead().chipCapacity"></span></p>
+            </div>
+        </div>
+        <div class="body">
+            <div data-bind="template: { name: 'frameParts', data: { title: 'body', list: bodyList, target: selectedBody } }"></div>
+            <div>
+                <p>重量:<span data-bind="text: selectedBody().weight"></span></p>
+                <p>装甲:<span data-bind="text: selectedBody().armor"></span></p>
+                <p>ブースト:<span data-bind="text: selectedBody().boosterGen"></span></p>
+                <p>SP:<span data-bind="text: selectedBody().spGen"></span></p>
+                <p>エリア移動:<span data-bind="text: selectedBody().areaChange"></span></p>
+                <p>チップ容量:<span data-bind="text: selectedBody().chipCapacity"></span></p>
+            </div>
+        </div>
+        <div class="arm">
+            <div data-bind="template: { name: 'frameParts', data: { title: 'arm', list: armList, target: selectedArm } }"></div>
+            <div>
+                <p>重量:<span data-bind="text: selectedArm().weight"></span></p>
+                <p>装甲:<span data-bind="text: selectedArm().armor"></span></p>
+                <p>反動吸収:<span data-bind="text: selectedArm().recoil"></span></p>
+                <p>リロード:<span data-bind="text: selectedArm().reload"></span></p>
+                <p>武器切替:<span data-bind="text: selectedArm().weaponChange"></span></p>
+                <p>チップ容量:<span data-bind="text: selectedArm().chipCapacity"></span></p>
+            </div>
+        </div>
+        <div class="leg">
+            <div data-bind="template: { name: 'frameParts', data: { title: 'leg', list: legList, target: selectedLeg } }"></div>
+            <p>重量:<span data-bind="text: selectedLeg().weight"></span></p>
+            <p>装甲:<span data-bind="text: selectedLeg().armor"></span></p>
+            <p>歩行:<span data-bind="text: selectedLeg().walk"></span></p>
+            <p>ダッシュ:<span data-bind="text: selectedLeg().dash"></span></p>
+            <p>重量耐性:<span data-bind="text: selectedLeg().weightCapacity"></span></p>
+            <p>チップ容量:<span data-bind="text: selectedLeg().chipCapacity"></span></p>
+        </div>
     </div>
 </body>
 </html>
