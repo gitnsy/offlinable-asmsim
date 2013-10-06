@@ -19,4 +19,18 @@
         "E": 3800
     };
 
+    $(".plugin_include tr td").each(function(ele){
+        if($(this).index() > 2 && $(this).select("td").index() < 3){
+            $(this).select("td").each(function(){console.log($(this).text())})
+        }
+    })
+
+    $(".plugin_include tr:gt(1)").find("td:lt(2)").each(function () { console.log($(this).text()) })
+
+    $(".plugin_include").each(function () {
+        $(this).find("tr:gt(1)").each(function () {
+            console.log({ name: $(this).find("td:eq(0)").text(), weight: $(this).find("td:eq(1)").text()})
+        })
+    })
+
 })(asmsim.data);
