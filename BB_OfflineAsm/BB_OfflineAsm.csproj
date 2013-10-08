@@ -86,6 +86,7 @@
     <Content Include="Scripts\asmsim\data\heavymain.js" />
     <Content Include="Scripts\asmsim\data\heavysp.js" />
     <Content Include="Scripts\asmsim\data\heavysub.js" />
+    <Content Include="Scripts\asmsim\data\setbonus.js" />
     <Content Include="Scripts\asmsim\data\supportassist.js" />
     <Content Include="Scripts\asmsim\data\supportmain.js" />
     <Content Include="Scripts\asmsim\data\supportsp.js" />
