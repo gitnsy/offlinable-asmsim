@@ -1,15 +1,7 @@
 ﻿var asmsim;
 (function (asmsim) {
     asmsim.datacontext = function datacontext() {
-    }
-
-    var testparts = [{ name: "クーガーI型", weight: 100 }
-        , { name: "クーガーII型", weight: 120 }
-        , { name: "シュライクI型", weight: 90 }
-        , { name: "シュライクII型", weight: 70 }
-        , { name: "ヘヴィガードI型", weight: 200 }
-        , { name: "ヘヴィガードII型", weight: 250 }
-    ];
+    };
     //Frame
     asmsim.datacontext.prototype.getArmList = function () {
         return asmsim.data.arms;
@@ -23,56 +15,57 @@
     asmsim.datacontext.prototype.getLegList = function () {
         return asmsim.data.legs;
     };
-    //Weapon-Assult
-    asmsim.datacontext.prototype.getAssultMainWeaponList = function () {
-        return testparts;
+
+    //Weapon-Assault
+    asmsim.datacontext.prototype.getAssaultMainWeaponList = function () {
+        return asmsim.data.assaultmain;
     };
-    asmsim.datacontext.prototype.getAssultSubWeaponList = function () {
-        return testparts;
+    asmsim.datacontext.prototype.getAssaultSubWeaponList = function () {
+        return asmsim.data.assaultsub;
     };
-    asmsim.datacontext.prototype.getAssultAssistWeaponList = function () {
-        return testparts;
+    asmsim.datacontext.prototype.getAssaultAssistWeaponList = function () {
+        return asmsim.data.assaultassist;
     };
-    asmsim.datacontext.prototype.getAssultSpWeaponList = function () {
-        return testparts;
+    asmsim.datacontext.prototype.getAssaultSpWeaponList = function () {
+        return asmsim.data.assaultsp;
     };
     //Weapon-Heavy
     asmsim.datacontext.prototype.getHeavyMainWeaponList = function () {
-        return testparts;
+        return asmsim.data.heavymain;
     };
     asmsim.datacontext.prototype.getHeavySubWeaponList = function () {
-        return testparts;
+        return asmsim.data.heavysub;
     };
     asmsim.datacontext.prototype.getHeavyAssistWeaponList = function () {
-        return testparts;
+        return asmsim.data.heavyassist;
     };
     asmsim.datacontext.prototype.getHeavySpWeaponList = function () {
-        return testparts;
+        return asmsim.data.heavysp;
     };
     //Weapon-Support
     asmsim.datacontext.prototype.getSupportMainWeaponList = function () {
-        return testparts;
+        return asmsim.data.supportmain;
     };
     asmsim.datacontext.prototype.getSupportSubWeaponList = function () {
-        return testparts;
+        return asmsim.data.supportsub;
     };
     asmsim.datacontext.prototype.getSupportAssistWeaponList = function () {
-        return testparts;
+        return asmsim.data.supportassist;
     };
     asmsim.datacontext.prototype.getSupportSpWeaponList = function () {
-        return testparts;
+        return asmsim.data.supportsp;
     };
     //Weapon-Sniper
     asmsim.datacontext.prototype.getSniperMainWeaponList = function () {
-        return testparts;
+        return asmsim.data.snipermain;
     };
     asmsim.datacontext.prototype.getSniperSubWeaponList = function () {
-        return testparts;
+        return asmsim.data.snipersub;
     };
     asmsim.datacontext.prototype.getSniperAssistWeaponList = function () {
-        return testparts;
+        return asmsim.data.sniperassist;
     };
     asmsim.datacontext.prototype.getSniperSpWeaponList = function () {
-        return testparts;
+        return asmsim.data.snipersp;
     };
 })(asmsim = asmsim || {});
