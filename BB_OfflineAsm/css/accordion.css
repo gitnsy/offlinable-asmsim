@@ -1,0 +1,42 @@
+﻿/*参考:http://coliss.com/articles/build-websites/operation/css/css3-tutorial-accordion-using-input-and-label-by-codrops.html*/
+
+/*アコーディオンヘッダ*/
+/*ラベルのスタイルです。グラデーションやシャドウを与え、クリック可能なボタンのようにデザインします。*/
+.ac-container label {
+    display: block;
+    height: Auto;
+    box-shadow: /*枠線*/
+    0px 0px 0px 1px rgba(155,155,155,0.3), 1px 0px 0px 0px rgba(255,255,255,0.9) inset, 0px 2px 2px rgba(0,0,0,0.1);
+}
+
+.ac-container label:after {
+    content: "▼";
+}
+
+.ac-container input:checked ~ label:after {
+    content: "▲";
+}
+
+
+/*また、input要素（チェックボックスやラジオボタン）が見えることは望まないので、非表示にします。
+    アコーディオンの展開状態管理に利用される*/
+.ac-container input {
+    display: none;
+}
+
+/*アコーディオン内部コンテンツ*/
+/*コンテンツのスタイルを定義します。
+デフォルト時は「height: 0px;」にし非表示にし、立体感を出すためにbox-shadowを使用します。*/
+.ac-container article {
+    margin-top: 0px;
+    overflow: hidden;
+    height: 0px;
+    box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);
+}
+
+/*コンテンツのスタイルを定義します。
+デフォルト時は「height: 0px;」にし非表示にし、立体感を出すためにbox-shadowを使用します。*/
+.ac-container input:checked ~ article {
+    height: auto;
+    box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3); /*枠線*/
+}

@@ -4,19 +4,28 @@
 <head>
     <title>BB-AsmSim</title>
     <link rel="stylesheet" href="css/top.css" />
+    <link rel="stylesheet" href="css/accordion.css" />
 </head>
 <body>
     <h1>BB-AsmSim</h1>
 
-    <div id="summary">
-        頭部:<select data-bind="options: headList, value: selectedHead, optionsText: 'name'"></select><br>
-        胴部:<select data-bind="options: bodyList, value: selectedBody, optionsText: 'name'"></select><br>
-        腕部:<select data-bind="options: armList, value: selectedArm, optionsText: 'name'"></select><br>
-        脚部:<select data-bind="options: legList, value: selectedLeg, optionsText: 'name'"></select><br>
-        チップ容量:<span data-bind="text: totalChipCapacity"></span><br>
-        装甲平均値:<span data-bind="text: armorAvarage"></span><br>
-        <div class="armor"></div>
-        <div class="speed">
+    <div class="ac-container">
+        <input id="ac1" type="checkbox" />
+        <label for="ac1">サマリー</label>
+        <article class="ac-small">
+            頭部:<select data-bind="options: headList, value: selectedHead, optionsText: 'name'"></select><br>
+            胴部:<select data-bind="options: bodyList, value: selectedBody, optionsText: 'name'"></select><br>
+            腕部:<select data-bind="options: armList, value: selectedArm, optionsText: 'name'"></select><br>
+            脚部:<select data-bind="options: legList, value: selectedLeg, optionsText: 'name'"></select><br>
+            チップ容量:<span data-bind="text: totalChipCapacity"></span><br>
+            装甲平均値:<span data-bind="text: armorAvarage"></span><br>
+            <div class="armor"></div>
+        </article>
+    </div>
+    <div class="ac-container">
+        <input id="ac1-1" type="checkbox" />
+        <label for="ac1-1">強襲</label>
+        <article>
             <span class="assault" data-bind="template: {
     name: 'speedSummary', data: {
         title: '強襲', capacity: totalWeight, totalWeight: assaultWeight
@@ -26,6 +35,13 @@
             , assists: assaultAssistWeapons, assist: selectedAssaultAssist
     }
 }"></span>
+        </article>
+    </div>
+    <div class="ac-container">
+
+        <input id="ac1-2" type="checkbox" />
+        <label for="ac1-2">重火力</label>
+        <article>
             <span class="heavy" data-bind="template: {
     name: 'speedSummary', data: {
         title: '重火力', capacity: totalWeight, totalWeight: heavyWeight
@@ -35,6 +51,12 @@
         , assists: heavyAssistWeapons, assist: selectedHeavyAssist
     }
 }"></span>
+        </article>
+    </div>
+    <div class="ac-container">
+        <input id="ac1-3" type="checkbox" />
+        <label for="ac1-3">支援</label>
+        <article>
             <span class="support" data-bind="template: {
     name: 'speedSummary', data: {
         title: '支援', capacity: totalWeight, totalWeight: supportWeight
@@ -44,6 +66,12 @@
         , assists: supportAssistWeapons, assist: selectedSupportAssist
     }
 }"></span>
+        </article>
+    </div>
+    <div class="ac-container">
+        <input id="ac1-4" type="checkbox" />
+        <label for="ac1-4">狙撃</label>
+        <article>
             <span class="snipper" data-bind="template: {
     name: 'speedSummary', data: {
         title: '狙撃', capacity: totalWeight, totalWeight: sniperWeight
@@ -53,103 +81,133 @@
         , assists: sniperAssistWeapons, assist: selectedSniperAssist
     }
 }"></span>
-        </div>
+        </article>
     </div>
 
     <div id="frame">
-        <div class="head">
-            <div data-bind="template: { name: 'frameParts', data: { title: 'head', list: headList, target: selectedHead } }"></div>
-            <div>
-                重量:<span data-bind="text: selectedHead().weight"></span><br />
-                装甲:<span data-bind="text: selectedHead().armor"></span><br />
-                射撃補正:<span data-bind="text: selectedHead().shotAdjust"></span><br />
-                索敵:<span data-bind="text: selectedHead().search"></span><br />
-                ロックオン:<span data-bind="text: selectedHead().lockon"></span><br />
-                チップ容量:<span data-bind="text: selectedHead().chipCapacity"></span><br />
-            </div>
+        <div class="ac-container">
+            <input id="ac2-1" type="checkbox" />
+            <label for="ac2-1">頭部</label>
+            <article>
+                <div class="head">
+                    <div data-bind="template: { name: 'frameParts', data: { title: 'head', list: headList, target: selectedHead } }"></div>
+                    <div>
+                        重量:<span data-bind="text: selectedHead().weight"></span><br />
+                        装甲:<span data-bind="text: selectedHead().armor"></span><br />
+                        射撃補正:<span data-bind="text: selectedHead().shotAdjust"></span><br />
+                        索敵:<span data-bind="text: selectedHead().search"></span><br />
+                        ロックオン:<span data-bind="text: selectedHead().lockon"></span><br />
+                        チップ容量:<span data-bind="text: selectedHead().chipCapacity"></span><br />
+                    </div>
+                </div>
+            </article>
         </div>
-        <div class="body">
-            <div data-bind="template: { name: 'frameParts', data: { title: 'body', list: bodyList, target: selectedBody } }"></div>
-            <div>
-                重量:<span data-bind="text: selectedBody().weight"></span><br />
-                装甲:<span data-bind="text: selectedBody().armor"></span><br />
-                ブースト:<span data-bind="text: selectedBody().boosterGen"></span><br />
-                SP:<span data-bind="text: selectedBody().spGen"></span><br />
-                エリア移動:<span data-bind="text: selectedBody().areaChange"></span><br />
-                チップ容量:<span data-bind="text: selectedBody().chipCapacity"></span><br />
-            </div>
+        <div class="ac-container">
+            <input id="ac2-2" type="checkbox" />
+            <label for="ac2-2">胴部</label>
+            <article>
+
+                <div class="body">
+                    <div data-bind="template: { name: 'frameParts', data: { title: 'body', list: bodyList, target: selectedBody } }"></div>
+                    <div>
+                        重量:<span data-bind="text: selectedBody().weight"></span><br />
+                        装甲:<span data-bind="text: selectedBody().armor"></span><br />
+                        ブースト:<span data-bind="text: selectedBody().boosterGen"></span><br />
+                        SP:<span data-bind="text: selectedBody().spGen"></span><br />
+                        エリア移動:<span data-bind="text: selectedBody().areaChange"></span><br />
+                        チップ容量:<span data-bind="text: selectedBody().chipCapacity"></span><br />
+                    </div>
+                </div>
+            </article>
         </div>
-        <div class="arm">
-            <div data-bind="template: { name: 'frameParts', data: { title: 'arm', list: armList, target: selectedArm } }"></div>
-            <div>
-                重量:<span data-bind="text: selectedArm().weight"></span><br />
-                装甲:<span data-bind="text: selectedArm().armor"></span><br />
-                反動吸収:<span data-bind="text: selectedArm().recoil"></span><br />
-                リロード:<span data-bind="text: selectedArm().reload"></span><br />
-                武器切替:<span data-bind="text: selectedArm().weaponChange"></span><br />
-                チップ容量:<span data-bind="text: selectedArm().chipCapacity"></span><br />
-            </div>
+        <div class="ac-container">
+            <input id="ac2-3" type="checkbox" />
+            <label for="ac2-3">腕部</label>
+            <article>
+                <div class="arm">
+                    <div data-bind="template: { name: 'frameParts', data: { title: 'arm', list: armList, target: selectedArm } }"></div>
+                    <div>
+                        重量:<span data-bind="text: selectedArm().weight"></span><br />
+                        装甲:<span data-bind="text: selectedArm().armor"></span><br />
+                        反動吸収:<span data-bind="text: selectedArm().recoil"></span><br />
+                        リロード:<span data-bind="text: selectedArm().reload"></span><br />
+                        武器切替:<span data-bind="text: selectedArm().weaponChange"></span><br />
+                        チップ容量:<span data-bind="text: selectedArm().chipCapacity"></span><br />
+                    </div>
+                </div>
+            </article>
         </div>
-        <div class="leg">
-            <div data-bind="template: { name: 'frameParts', data: { title: 'leg', list: legList, target: selectedLeg } }"></div>
-            <div>
-                重量:<span data-bind="text: selectedLeg().weight"></span><br />
-                装甲:<span data-bind="text: selectedLeg().armor"></span><br />
-                歩行:<span data-bind="text: selectedLeg().walk"></span><br />
-                ダッシュ:<span data-bind="text: selectedLeg().dash"></span><br />
-                重量耐性:<span data-bind="text: selectedLeg().weightCapacity"></span><br />
-                チップ容量:<span data-bind="text: selectedLeg().chipCapacity"></span><br />
-            </div>
+        <div class="ac-container">
+            <input id="ac2-4" type="checkbox" />
+            <label for="ac2-4">脚部</label>
+            <article>
+                <div class="leg">
+                    <div data-bind="template: { name: 'frameParts', data: { title: 'leg', list: legList, target: selectedLeg } }"></div>
+                    <div>
+                        重量:<span data-bind="text: selectedLeg().weight"></span><br />
+                        装甲:<span data-bind="text: selectedLeg().armor"></span><br />
+                        歩行:<span data-bind="text: selectedLeg().walk"></span><br />
+                        ダッシュ:<span data-bind="text: selectedLeg().dash"></span><br />
+                        重量耐性:<span data-bind="text: selectedLeg().weightCapacity"></span><br />
+                        チップ容量:<span data-bind="text: selectedLeg().chipCapacity"></span><br />
+                    </div>
+                </div>
+            </article>
         </div>
     </div>
-    <p>sourcecode on <a href="https://github.com/gitnsy/offlinable-asmsim">GitHub</a></p>
-    <p>create by:<a href="https://twitter.com/tw_nsy">nsy</a></p>
-    <p>©SEGA</p>
 
-    <script src="Scripts/knockout-2.3.0.js"></script>
-    <script src="Scripts/asmsim/datacontext.js"></script>
-    <script src="Scripts/asmsim/ViewModel.js"></script>
-    <script src="Scripts/asmsim/data/headParts.js"></script>
-    <script src="Scripts/asmsim/data/armParts.js"></script>
-    <script src="Scripts/asmsim/data/bodyParts.js"></script>
-    <script src="Scripts/asmsim/data/legParts.js"></script>
-    <script src="Scripts/asmsim/data/realvalue.js"></script>
-    <script src="Scripts/asmsim/data/assaultmain.js"></script>
-    <script src="Scripts/asmsim/data/assaultsub.js"></script>
-    <script src="Scripts/asmsim/data/assaultassist.js"></script>
-    <script src="Scripts/asmsim/data/assaultsp.js"></script>
-    <script src="Scripts/asmsim/data/heavymain.js"></script>
-    <script src="Scripts/asmsim/data/heavysub.js"></script>
-    <script src="Scripts/asmsim/data/heavyassist.js"></script>
-    <script src="Scripts/asmsim/data/heavysp.js"></script>
-    <script src="Scripts/asmsim/data/snipermain.js"></script>
-    <script src="Scripts/asmsim/data/snipersub.js"></script>
-    <script src="Scripts/asmsim/data/sniperassist.js"></script>
-    <script src="Scripts/asmsim/data/snipersp.js"></script>
-    <script src="Scripts/asmsim/data/supportmain.js"></script>
-    <script src="Scripts/asmsim/data/supportsub.js"></script>
-    <script src="Scripts/asmsim/data/supportassist.js"></script>
-    <script src="Scripts/asmsim/data/supportsp.js"></script>
+    <div>
+        <p>sourcecode on <a href="https://github.com/gitnsy/offlinable-asmsim">GitHub</a></p>
+        <p>create by:<a href="https://twitter.com/tw_nsy">nsy</a></p>
+        <p>©SEGA</p>
+    </div>
 
-    <script type="text/html" id="frameParts">
-        <h2 data-bind="text: title" />
-        <select data-bind="options: list, value: target, optionsText: 'name'"></select>
-    </script>
+    <div>
+        <script src="Scripts/knockout-2.3.0.js"></script>
+        <script src="Scripts/asmsim/datacontext.js"></script>
+        <script src="Scripts/asmsim/ViewModel.js"></script>
+        <script src="Scripts/asmsim/data/headParts.js"></script>
+        <script src="Scripts/asmsim/data/armParts.js"></script>
+        <script src="Scripts/asmsim/data/bodyParts.js"></script>
+        <script src="Scripts/asmsim/data/legParts.js"></script>
+        <script src="Scripts/asmsim/data/realvalue.js"></script>
+        <script src="Scripts/asmsim/data/assaultmain.js"></script>
+        <script src="Scripts/asmsim/data/assaultsub.js"></script>
+        <script src="Scripts/asmsim/data/assaultassist.js"></script>
+        <script src="Scripts/asmsim/data/assaultsp.js"></script>
+        <script src="Scripts/asmsim/data/heavymain.js"></script>
+        <script src="Scripts/asmsim/data/heavysub.js"></script>
+        <script src="Scripts/asmsim/data/heavyassist.js"></script>
+        <script src="Scripts/asmsim/data/heavysp.js"></script>
+        <script src="Scripts/asmsim/data/snipermain.js"></script>
+        <script src="Scripts/asmsim/data/snipersub.js"></script>
+        <script src="Scripts/asmsim/data/sniperassist.js"></script>
+        <script src="Scripts/asmsim/data/snipersp.js"></script>
+        <script src="Scripts/asmsim/data/supportmain.js"></script>
+        <script src="Scripts/asmsim/data/supportsub.js"></script>
+        <script src="Scripts/asmsim/data/supportassist.js"></script>
+        <script src="Scripts/asmsim/data/supportsp.js"></script>
 
-    <script type="text/html" id="speedSummary">
-        <h2 data-bind="text: title"></h2>
-        <span data-bind="text: capacity"></span>/<span data-bind="    text: totalWeight"></span>
-        <div class="weapon" style>
-            <div class="main">main:<select data-bind="options: mains, value: main, optionsText: 'name'"></select>重量:<span data-bind="    text: main().weight"></span></div>
-            <div class="sub">sub:<select data-bind="options: subs, value: sub, optionsText: 'name'"></select>重量:<span data-bind="    text: sub().weight"></span></div>
-            <div class="assist">assist:<select data-bind="options: assists, value: assist, optionsText: 'name'"></select>重量:<span data-bind="    text: assist().weight"></span></div>
-            <div class="sp">sp:<select data-bind="options: sps, value: sp, optionsText: 'name'"></select>重量:<span data-bind="    text: sp().weight"></span></div>
-        </div>
-    </script>
+        <script type="text/html" id="frameParts">
+            <h2 data-bind="text: title" />
+            <select data-bind="options: list, value: target, optionsText: 'name'"></select>
+        </script>
 
-    <script>
-        vm = new asmsim.viewModel();
-        ko.applyBindings(vm)
-    </script>
+        <script type="text/html" id="speedSummary">
+            <h2 data-bind="text: title"></h2>
+            <span data-bind="text: capacity"></span>/<span data-bind="    text: totalWeight"></span>
+            <div class="weapon" style>
+                <div class="main">main:<select data-bind="options: mains, value: main, optionsText: 'name'"></select>重量:<span data-bind="    text: main().weight"></span></div>
+                <div class="sub">sub:<select data-bind="options: subs, value: sub, optionsText: 'name'"></select>重量:<span data-bind="    text: sub().weight"></span></div>
+                <div class="assist">assist:<select data-bind="options: assists, value: assist, optionsText: 'name'"></select>重量:<span data-bind="    text: assist().weight"></span></div>
+                <div class="sp">sp:<select data-bind="options: sps, value: sp, optionsText: 'name'"></select>重量:<span data-bind="    text: sp().weight"></span></div>
+            </div>
+        </script>
+
+        <script>
+            vm = new asmsim.viewModel();
+            ko.applyBindings(vm)
+        </script>
+    </div>
 </body>
 </html>
