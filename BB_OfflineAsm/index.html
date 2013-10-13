@@ -4,56 +4,6 @@
 <head>
     <title>BB-AsmSim</title>
     <link rel="stylesheet" href="css/top.css" />
-
-    <script src="Scripts/jquery-2.0.3.min.js"></script>
-    <script src="Scripts/knockout-2.3.0.js"></script>
-    <script src="Scripts/asmsim/datacontext.js"></script>
-    <script src="Scripts/asmsim/ViewModel.js"></script>
-    <script src="Scripts/asmsim/data/headParts.js"></script>
-    <script src="Scripts/asmsim/data/armParts.js"></script>
-    <script src="Scripts/asmsim/data/bodyParts.js"></script>
-    <script src="Scripts/asmsim/data/legParts.js"></script>
-    <script src="Scripts/asmsim/data/realvalue.js"></script>
-    <script src="Scripts/asmsim/data/assaultmain.js"></script>
-    <script src="Scripts/asmsim/data/assaultsub.js"></script>
-    <script src="Scripts/asmsim/data/assaultassist.js"></script>
-    <script src="Scripts/asmsim/data/assaultsp.js"></script>
-    <script src="Scripts/asmsim/data/heavymain.js"></script>
-    <script src="Scripts/asmsim/data/heavysub.js"></script>
-    <script src="Scripts/asmsim/data/heavyassist.js"></script>
-    <script src="Scripts/asmsim/data/heavysp.js"></script>
-    <script src="Scripts/asmsim/data/snipermain.js"></script>
-    <script src="Scripts/asmsim/data/snipersub.js"></script>
-    <script src="Scripts/asmsim/data/sniperassist.js"></script>
-    <script src="Scripts/asmsim/data/snipersp.js"></script>
-    <script src="Scripts/asmsim/data/supportmain.js"></script>
-    <script src="Scripts/asmsim/data/supportsub.js"></script>
-    <script src="Scripts/asmsim/data/supportassist.js"></script>
-    <script src="Scripts/asmsim/data/supportsp.js"></script>
-
-    <script type="text/html" id="frameParts">
-        <h2 data-bind="text: title" />
-        <select data-bind="options: list, value: target, optionsText: 'name'"></select>
-    </script>
-
-    <script type="text/html" id="speedSummary">
-        <h2 data-bind="text: title"></h2>
-        <span data-bind="text: capacity"></span>/<span data-bind="    text: totalWeight"></span>
-        <div class="weapon" style>
-            <div class="main">main:<select data-bind="options: mains, value: main, optionsText: 'name'"></select>重量:<span data-bind="    text: main().weight"></span></div>
-            <div class="sub">sub:<select data-bind="options: subs, value: sub, optionsText: 'name'"></select>重量:<span data-bind="    text: sub().weight"></span></div>
-            <div class="assist">assist:<select data-bind="options: assists, value: assist, optionsText: 'name'"></select>重量:<span data-bind="    text: assist().weight"></span></div>
-            <div class="sp">sp:<select data-bind="options: sps, value: sp, optionsText: 'name'"></select>重量:<span data-bind="    text: sp().weight"></span></div>
-        </div>
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            vm = new asmsim.viewModel();
-            ko.applyBindings(vm)
-        });
-    </script>
-
 </head>
 <body>
     <h1>BB-AsmSim</h1>
@@ -155,5 +105,51 @@
     <p>sourcecode on <a href="https://github.com/gitnsy/offlinable-asmsim">GitHub</a></p>
     <p>create by:<a href="https://twitter.com/tw_nsy">nsy</a></p>
     <p>©SEGA</p>
+
+    <script src="Scripts/knockout-2.3.0.js"></script>
+    <script src="Scripts/asmsim/datacontext.js"></script>
+    <script src="Scripts/asmsim/ViewModel.js"></script>
+    <script src="Scripts/asmsim/data/headParts.js"></script>
+    <script src="Scripts/asmsim/data/armParts.js"></script>
+    <script src="Scripts/asmsim/data/bodyParts.js"></script>
+    <script src="Scripts/asmsim/data/legParts.js"></script>
+    <script src="Scripts/asmsim/data/realvalue.js"></script>
+    <script src="Scripts/asmsim/data/assaultmain.js"></script>
+    <script src="Scripts/asmsim/data/assaultsub.js"></script>
+    <script src="Scripts/asmsim/data/assaultassist.js"></script>
+    <script src="Scripts/asmsim/data/assaultsp.js"></script>
+    <script src="Scripts/asmsim/data/heavymain.js"></script>
+    <script src="Scripts/asmsim/data/heavysub.js"></script>
+    <script src="Scripts/asmsim/data/heavyassist.js"></script>
+    <script src="Scripts/asmsim/data/heavysp.js"></script>
+    <script src="Scripts/asmsim/data/snipermain.js"></script>
+    <script src="Scripts/asmsim/data/snipersub.js"></script>
+    <script src="Scripts/asmsim/data/sniperassist.js"></script>
+    <script src="Scripts/asmsim/data/snipersp.js"></script>
+    <script src="Scripts/asmsim/data/supportmain.js"></script>
+    <script src="Scripts/asmsim/data/supportsub.js"></script>
+    <script src="Scripts/asmsim/data/supportassist.js"></script>
+    <script src="Scripts/asmsim/data/supportsp.js"></script>
+
+    <script type="text/html" id="frameParts">
+        <h2 data-bind="text: title" />
+        <select data-bind="options: list, value: target, optionsText: 'name'"></select>
+    </script>
+
+    <script type="text/html" id="speedSummary">
+        <h2 data-bind="text: title"></h2>
+        <span data-bind="text: capacity"></span>/<span data-bind="    text: totalWeight"></span>
+        <div class="weapon" style>
+            <div class="main">main:<select data-bind="options: mains, value: main, optionsText: 'name'"></select>重量:<span data-bind="    text: main().weight"></span></div>
+            <div class="sub">sub:<select data-bind="options: subs, value: sub, optionsText: 'name'"></select>重量:<span data-bind="    text: sub().weight"></span></div>
+            <div class="assist">assist:<select data-bind="options: assists, value: assist, optionsText: 'name'"></select>重量:<span data-bind="    text: assist().weight"></span></div>
+            <div class="sp">sp:<select data-bind="options: sps, value: sp, optionsText: 'name'"></select>重量:<span data-bind="    text: sp().weight"></span></div>
+        </div>
+    </script>
+
+    <script>
+        vm = new asmsim.viewModel();
+        ko.applyBindings(vm)
+    </script>
 </body>
 </html>
