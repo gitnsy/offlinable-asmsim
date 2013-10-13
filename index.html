@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html manifest="asmsim.appcache">
+
 <head>
     <title>BB-AsmSim</title>
     <link rel="stylesheet" href="css/top.css" />
@@ -27,7 +28,7 @@
         <article>
             <span class="assault" data-bind="template: {
     name: 'speedSummary', data: {
-        title: '強襲', capacity: totalWeight, totalWeight: assaultWeight
+        capacity: capacity, totalWeight: assaultWeight
             , mains: assaultMainWeapons, main: selectedAssaultMain
             , subs: assaultSubWeapons, sub: selectedAssaultSub
             , sps: assaultSpWeapons, sp: selectedAssaultSp
@@ -43,7 +44,7 @@
         <article>
             <span class="heavy" data-bind="template: {
     name: 'speedSummary', data: {
-        title: '重火力', capacity: totalWeight, totalWeight: heavyWeight
+        capacity: capacity, totalWeight: heavyWeight
         , mains: heavyMainWeapons, main: selectedHeavyMain
         , subs: heavySubWeapons, sub: selectedHeavySub
         , sps: heavySpWeapons, sp: selectedHeavySp
@@ -58,7 +59,7 @@
         <article>
             <span class="support" data-bind="template: {
     name: 'speedSummary', data: {
-        title: '支援', capacity: totalWeight, totalWeight: supportWeight
+        capacity: capacity, totalWeight: supportWeight
         , mains: supportMainWeapons, main: selectedSupportMain
         , subs: supportSubWeapons, sub: selectedSupportSub
         , sps: supportSpWeapons, sp: selectedSupportSp
@@ -73,7 +74,7 @@
         <article>
             <span class="snipper" data-bind="template: {
     name: 'speedSummary', data: {
-        title: '狙撃', capacity: totalWeight, totalWeight: sniperWeight
+        capacity: capacity, totalWeight: sniperWeight
         , mains: sniperMainWeapons, main: selectedSniperMain
         , subs: sniperSubWeapons, sub: selectedSniperSub
         , sps: sniperSpWeapons, sp: selectedSniperSp
@@ -89,7 +90,7 @@
             <label for="ac2-1">頭部</label>
             <article>
                 <div class="head">
-                    <div data-bind="template: { name: 'frameParts', data: { title: 'head', list: headList, target: selectedHead } }"></div>
+                    <div data-bind="template: { name: 'frameParts', data: { list: headList, target: selectedHead } }"></div>
                     <div>
                         重量:<span data-bind="text: selectedHead().weight"></span><br />
                         装甲:<span data-bind="text: selectedHead().armor"></span><br />
@@ -107,7 +108,7 @@
             <article>
 
                 <div class="body">
-                    <div data-bind="template: { name: 'frameParts', data: { title: 'body', list: bodyList, target: selectedBody } }"></div>
+                    <div data-bind="template: { name: 'frameParts', data: { list: bodyList, target: selectedBody } }"></div>
                     <div>
                         重量:<span data-bind="text: selectedBody().weight"></span><br />
                         装甲:<span data-bind="text: selectedBody().armor"></span><br />
@@ -124,7 +125,7 @@
             <label for="ac2-3">腕部</label>
             <article>
                 <div class="arm">
-                    <div data-bind="template: { name: 'frameParts', data: { title: 'arm', list: armList, target: selectedArm } }"></div>
+                    <div data-bind="template: { name: 'frameParts', data: {list: armList, target: selectedArm } }"></div>
                     <div>
                         重量:<span data-bind="text: selectedArm().weight"></span><br />
                         装甲:<span data-bind="text: selectedArm().armor"></span><br />
@@ -141,7 +142,7 @@
             <label for="ac2-4">脚部</label>
             <article>
                 <div class="leg">
-                    <div data-bind="template: { name: 'frameParts', data: { title: 'leg', list: legList, target: selectedLeg } }"></div>
+                    <div data-bind="template: { name: 'frameParts', data: { list: legList, target: selectedLeg } }"></div>
                     <div>
                         重量:<span data-bind="text: selectedLeg().weight"></span><br />
                         装甲:<span data-bind="text: selectedLeg().armor"></span><br />
@@ -155,11 +156,23 @@
         </div>
     </div>
 
-    <div>
+    <div style="margin-top:20px">
+        主な未実装項目
+        <ul>
+            <li>セットボーナス</li>
+            <li>チップ</li>
+            <li>一部パーツデータ(主にアスラ以降)</li>
+            <li>走行平均値計測</li>
+            <li>パラメータ実値</li>
+            <li>レイアウト</li>
+        </ul>
+    </div>
+
+    <footer>
         <p>sourcecode on <a href="https://github.com/gitnsy/offlinable-asmsim">GitHub</a></p>
         <p>create by:<a href="https://twitter.com/tw_nsy">nsy</a></p>
         <p>©SEGA</p>
-    </div>
+    </footer>
 
     <div>
         <script src="Scripts/knockout-2.3.0.js"></script>
@@ -188,12 +201,10 @@
         <script src="Scripts/asmsim/data/supportsp.js"></script>
 
         <script type="text/html" id="frameParts">
-            <h2 data-bind="text: title" />
             <select data-bind="options: list, value: target, optionsText: 'name'"></select>
         </script>
 
         <script type="text/html" id="speedSummary">
-            <h2 data-bind="text: title"></h2>
             <span data-bind="text: capacity"></span>/<span data-bind="    text: totalWeight"></span>
             <div class="weapon" style>
                 <div class="main">main:<select data-bind="options: mains, value: main, optionsText: 'name'"></select>重量:<span data-bind="    text: main().weight"></span></div>
