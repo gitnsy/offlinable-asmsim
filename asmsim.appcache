@@ -1,0 +1,21 @@
+﻿CACHE MANIFEST
+# version 2013-10-06 v0
+
+CACHE:
+index.html
+Scripts/jquery-2.0.3.min.js
+Scripts/knockout-2.3.0.js
+Scripts/asmsim/datacontext.js
+Scripts/asmsim/ViewModel.js
+Scripts/asmsim/data/armParts.js
+Scripts/asmsim/data/bodyParts.js
+Scripts/asmsim/data/headParts.js
+Scripts/asmsim/data/legParts.js
+Scripts/asmsim/data/realvalue.js
+css/top.css
+
+NETWORK:
+*
+
+FALLBACK:
+Fallback.html
