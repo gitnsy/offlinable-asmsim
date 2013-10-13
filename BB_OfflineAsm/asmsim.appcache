@@ -3,6 +3,7 @@
 
 CACHE:
 index.html
+Scripts/knockout-2.3.0.js
 Scripts/asmsim/datacontext.js
 Scripts/asmsim/ViewModel.js
 Scripts/asmsim/data/headParts.js
