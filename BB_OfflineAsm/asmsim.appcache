@@ -1,8 +1,9 @@
 ﻿CACHE MANIFEST
-# version 2013-10-13 v0.2.1 Welcome AccordionFeature! . fix:index.html bug
+# version 2013-10-13 v0.2.2.2 Welcome AccordionFeature!/add aboutpage/about chache reflesh
 
 CACHE:
 index.html
+about.html
 Scripts/knockout-2.3.0.js
 Scripts/asmsim/datacontext.js
 Scripts/asmsim/ViewModel.js
