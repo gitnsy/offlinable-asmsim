@@ -103,6 +103,11 @@
     <Content Include="Scripts\knockout-2.3.0.js" />
     <Content Include="Scripts\asmsim\ViewModel.js" />
     <Content Include="Scripts\_reference.js" />
+    <Content Include="test\lib\jasmine-1.3.0\jasmine-html.js" />
+    <Content Include="test\lib\jasmine-1.3.0\jasmine.css" />
+    <Content Include="test\lib\jasmine-1.3.0\jasmine.js" />
+    <Content Include="test\SpecRunner.html" />
+    <Content Include="test\spec\ViewModelSpec.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -116,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <Content Include="test\lib\jasmine-1.3.0\MIT.LICENSE" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
