@@ -1,18 +1,33 @@
 ﻿CACHE MANIFEST
-# version 2013-10-06 v0
+# version 2013-10-13 v0.2 Welcome AccordionFeature!
 
 CACHE:
 index.html
-Scripts/jquery-2.0.3.min.js
-Scripts/knockout-2.3.0.js
 Scripts/asmsim/datacontext.js
 Scripts/asmsim/ViewModel.js
+Scripts/asmsim/data/headParts.js
 Scripts/asmsim/data/armParts.js
 Scripts/asmsim/data/bodyParts.js
-Scripts/asmsim/data/headParts.js
 Scripts/asmsim/data/legParts.js
 Scripts/asmsim/data/realvalue.js
+Scripts/asmsim/data/assaultmain.js
+Scripts/asmsim/data/assaultsub.js
+Scripts/asmsim/data/assaultassist.js
+Scripts/asmsim/data/assaultsp.js
+Scripts/asmsim/data/heavymain.js
+Scripts/asmsim/data/heavysub.js
+Scripts/asmsim/data/heavyassist.js
+Scripts/asmsim/data/heavysp.js
+Scripts/asmsim/data/snipermain.js
+Scripts/asmsim/data/snipersub.js
+Scripts/asmsim/data/sniperassist.js
+Scripts/asmsim/data/snipersp.js
+Scripts/asmsim/data/supportmain.js
+Scripts/asmsim/data/supportsub.js
+Scripts/asmsim/data/supportassist.js
+Scripts/asmsim/data/supportsp.js
 css/top.css
+css/accordion.css
 
 NETWORK:
 *

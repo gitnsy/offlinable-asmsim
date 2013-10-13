@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
-<!--<html manifest="asmsim.appcache">-->
-<html>
+<html manifest="asmsim.appcache">
 <head>
     <title>BB-AsmSim</title>
     <link rel="stylesheet" href="css/top.css" />
@@ -205,8 +204,7 @@
         </script>
 
         <script>
-            vm = new asmsim.viewModel();
-            ko.applyBindings(vm)
+            ko.applyBindings(new asmsim.viewModel())
         </script>
     </div>
 </body>
