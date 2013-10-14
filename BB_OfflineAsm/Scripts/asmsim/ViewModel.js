@@ -56,6 +56,18 @@ var asmsim = asmsim || {};
         this.selectedSupportAssist = ko.observable(datacontext.getSupportAssistWeaponList()[0]);
         this.selectedSupportSp = ko.observable(datacontext.getSupportSpWeaponList()[0]);
 
+        this.exParams = ko.observable(0);
+
+        this.setBonus = ko.computed(function () {
+            var sb = (self.selectedHead().bland === self.selectedBody().bland
+                && self.selectedHead().bland === self.selectedArm().bland
+                && self.selectedHead().bland === self.selectedLeg().bland)
+            ? asmsim.data.setbonus[self.selectedHead().bland] : {};
+
+            self.exParams(sb.adjustRoutine || 0);
+            return sb.description || "";
+        });
+
         this.totalWeight = ko.computed(function () {
             return self.selectedHead().weight
                 + self.selectedBody().weight
@@ -115,7 +127,7 @@ var asmsim = asmsim || {};
         });
 
         this.capacity = ko.computed(function () {
-            return asmsim.data.weightCapacityRealvalue[self.selectedLeg().weightCapacity];
+            return asmsim.data.weightCapacityRealvalue[self.selectedLeg().weightCapacity] + self.exParams();
         });
     }
 

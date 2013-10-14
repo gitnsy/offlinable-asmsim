@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
-<html manifest="asmsim.appcache">
-
+<html>
+<!--<html manifest="asmsim.appcache">-->
 <head>
     <title>BB-AsmSim</title>
     <link rel="stylesheet" href="css/top.css" />
@@ -23,6 +23,7 @@
             脚部:<select data-bind="options: legList, value: selectedLeg, optionsText: 'name'"></select><br>
             チップ容量:<span data-bind="text: totalChipCapacity"></span><br>
             装甲平均値:<span data-bind="text: armorAvarage"></span><br>
+            セットボーナス:<span data-bind="text: setBonus"></span><br>
             <div class="armor"></div>
         </article>
     </div>
@@ -163,10 +164,8 @@
     <div style="margin-top:20px">
         主な未実装項目
         <ul>
-            <li>セットボーナス</li>
             <li>チップ</li>
-            <li>一部パーツデータ(主にアスラ以降)</li>
-            <li>走行平均値計測</li>
+            <li>装甲平均値計測</li>
             <li>パラメータ実値</li>
             <li>レイアウト</li>
         </ul>
@@ -204,13 +203,14 @@
         <script src="Scripts/asmsim/data/supportsub.js"></script>
         <script src="Scripts/asmsim/data/supportassist.js"></script>
         <script src="Scripts/asmsim/data/supportsp.js"></script>
+        <script src="Scripts/asmsim/data/setBonus.js"></script>
 
         <script type="text/html" id="frameParts">
             <select data-bind="options: list, value: target, optionsText: 'name'"></select>
         </script>
 
         <script type="text/html" id="speedSummary">
-            <span data-bind="text: capacity"></span>/<span data-bind="    text: totalWeight"></span>
+            <span data-bind="    text: totalWeight"></span>/<span data-bind="    text: capacity"></span>
             <div class="weapon" style>
                 <div class="main">main:<select data-bind="options: mains, value: main, optionsText: 'name'"></select>重量:<span data-bind="    text: main().weight"></span></div>
                 <div class="sub">sub:<select data-bind="options: subs, value: sub, optionsText: 'name'"></select>重量:<span data-bind="    text: sub().weight"></span></div>
@@ -220,7 +220,8 @@
         </script>
 
         <script>
-            ko.applyBindings(new asmsim.viewModel())
+            vm = new asmsim.viewModel();
+            ko.applyBindings(vm);
         </script>
     </div>
 </body>
