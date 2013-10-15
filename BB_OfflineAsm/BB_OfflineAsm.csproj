@@ -72,7 +72,6 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="asmsim.appcache" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
-    <Content Include="Scripts\asmsim\calc.js" />
     <Content Include="Scripts\asmsim\datacontext.js" />
     <Content Include="Scripts\asmsim\data\assaultmain.js" />
     <Content Include="Scripts\asmsim\data\bodyParts.js" />
