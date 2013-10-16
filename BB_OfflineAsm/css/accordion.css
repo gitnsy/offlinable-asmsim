@@ -27,7 +27,7 @@
 /*アコーディオン内部コンテンツ*/
 /*コンテンツのスタイルを定義します。
 デフォルト時は「height: 0px;」にし非表示にし、立体感を出すためにbox-shadowを使用します。*/
-.ac-container article {
+.ac-container > article {
     margin-top: 0px;
     overflow: hidden;
     height: 0px;
