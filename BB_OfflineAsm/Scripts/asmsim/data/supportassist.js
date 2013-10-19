@@ -12,6 +12,7 @@
 , { "name": "軽量索敵センサー", "weight": 250 }
 , { "name": "滞空索敵弾", "weight": 370 }
 , { "name": "小型滞空索敵弾", "weight": 360 }
+, { "name": "広域滞空索敵弾", "weight": 420 }
 , { "name": "レーダーユニット", "weight": 410 }
 , { "name": "レーダーユニットII", "weight": 420 }
 , { "name": "スタナーJ", "weight": 320 }

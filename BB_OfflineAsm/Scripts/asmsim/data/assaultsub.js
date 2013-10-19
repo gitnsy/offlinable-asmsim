@@ -8,7 +8,8 @@
 , { "name": "40型クラッカー", "weight": 110 }
 , { "name": "42型クラッカー", "weight": 160 }
 , { "name": "バーストチャクラム", "weight": 200 }
-, { "name": "バーストチャクラムS ", "weight":180 }
+, { "name": "バーストチャクラムS ", "weight": 180 }
+, { "name": "バーストチャクラムV ", "weight": 250 }
 , { "name": "チェインボム", "weight": 140 }
 , { "name": "チェインボムS", "weight": 120 }
 , { "name": "チェインボムV", "weight": 170 }
