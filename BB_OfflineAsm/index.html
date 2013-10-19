@@ -2,6 +2,7 @@
 <html>
 <!--<html manifest="asmsim.appcache">-->
 <head>
+    <meta charset="UTF-8">
     <title>BB-AsmSim</title>
     <link rel="stylesheet" href="css/top.css" />
     <link rel="stylesheet" href="css/accordion.css" />
@@ -14,16 +15,17 @@
     </div>
 
     <div class="ac-container">
-        <input id="ac1" type="checkbox" />
+        <input id="ac1" type="checkbox" checked="checked" />
         <label for="ac1">サマリー</label>
-        <article class="ac-small">
-            頭部:<select data-bind="options: headList, value: selectedHead, optionsText: 'name'"></select><br>
-            胴部:<select data-bind="options: bodyList, value: selectedBody, optionsText: 'name'"></select><br>
-            腕部:<select data-bind="options: armList, value: selectedArm, optionsText: 'name'"></select><br>
-            脚部:<select data-bind="options: legList, value: selectedLeg, optionsText: 'name'"></select><br>
-            チップ容量:<span data-bind="text: totalChipCapacity"></span><br>
-            装甲平均値:<span data-bind="text: armorAvarage"></span><br>
+        <article class="summary">
+            頭部:<select data-bind="options: headList, value: selectedHead, optionsText: 'name'"></select><span class="partsInfo">重:<span data-bind="    text: selectedHead().weight"></span>装:<span data-bind="    text: selectedHead().armor"></span>射:<span data-bind="    text: selectedHead().shotAdjust"></span>索:<span data-bind="    text: selectedHead().search"></span>ロ:<span data-bind="    text: selectedHead().lockon"></span>チ:<span data-bind="    text: selectedHead().chipCapacity"></span></span><br />
+            胴部:<select data-bind="options: bodyList, value: selectedBody, optionsText: 'name'"></select><span class="partsInfo">重:<span data-bind="    text: selectedBody().weight"></span>装:<span data-bind="    text: selectedBody().armor"></span>ブ:<span data-bind="    text: selectedBody().boosterGen"></span>SP:<span data-bind="    text: selectedBody().spGen"></span>エ:<span data-bind="    text: selectedBody().areaChange"></span>チ:<span data-bind="    text: selectedBody().chipCapacity"></span></span><br />
+            腕部:<select data-bind="options: armList, value: selectedArm, optionsText: 'name'"></select><span class="partsInfo">重:<span data-bind="    text: selectedArm().weight"></span>装:<span data-bind="    text: selectedArm().armor"></span>反:<span data-bind="    text: selectedArm().recoil"></span>リ:<span data-bind="    text: selectedArm().reload"></span>替:<span data-bind="    text: selectedArm().weaponChange"></span>チ:<span data-bind="    text: selectedArm().chipCapacity"></span></span><br />
+            脚部:<select data-bind="options: legList, value: selectedLeg, optionsText: 'name'"></select><span class="partsInfo">重:<span data-bind="    text: selectedLeg().weight"></span>装:<span data-bind="    text: selectedLeg().armor"></span>歩:<span data-bind="    text: selectedLeg().walk"></span>ダ:<span data-bind="    text: selectedLeg().dash"></span>積:<span data-bind="    text: selectedLeg().weightCapacity"></span>チ:<span data-bind="    text: selectedLeg().chipCapacity"></span></span><br />
+            チップ容量:<span data-bind="text: totalChipCost"></span>/<span data-bind="    text: totalChipCapacity"></span> 猶予:<span data-bind="text: totalChipCapacity()-totalChipCost()"></span><br>
+            (仮)装甲平均値:<span data-bind="text: armorAvarage"></span><br>
             セットボーナス:<span data-bind="text: setBonus"></span><br>
+            積載猶予:<span data-bind="text: capacity() - totalWeight()"></span><br>
             <div class="armor"></div>
         </article>
     </div>
@@ -95,7 +97,7 @@
             <label for="ac2-1">頭部</label>
             <article>
                 <div class="head">
-                    <div data-bind="template: { name: 'frameParts', data: { list: headList, target: selectedHead } }"></div>
+                    <div data-bind="template: { name: 'frameParts', data: { list: headList, target: selectedHead} }"></div>
                     <div>
                         重量:<span data-bind="text: selectedHead().weight"></span><br />
                         装甲:<span data-bind="text: selectedHead().armor"></span><br />
@@ -104,6 +106,37 @@
                         ロックオン:<span data-bind="text: selectedHead().lockon"></span><br />
                         チップ容量:<span data-bind="text: selectedHead().chipCapacity"></span><br />
                     </div>
+                </div>
+                <div class="nestedAccordion ac-container">
+                    <input id="headListTable" type="checkbox" />
+                    <label for="headListTable">パーツ一覧</label>
+                    <article>
+                        重量上限:<input type="number" data-bind="value: filterHeadWeight"/>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>名前</td>
+                                    <td>重量</td>
+                                    <td>装甲</td>
+                                    <td>射撃補正</td>
+                                    <td>索敵</td>
+                                    <td>ロックオン</td>
+                                    <td>チップ容量</td>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: filterdHead">
+                                <tr>
+                                    <td data-bind="text: name"></td>
+                                    <td data-bind="    text: weight"></td>
+                                    <td data-bind="    text: armor"></td>
+                                    <td data-bind="    text: shotAdjust"></td>
+                                    <td data-bind="    text: search"></td>
+                                    <td data-bind="    text: lockon"></td>
+                                    <td data-bind="    text: chipCapacity"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
                 </div>
             </article>
         </div>
@@ -123,6 +156,38 @@
                         チップ容量:<span data-bind="text: selectedBody().chipCapacity"></span><br />
                     </div>
                 </div>
+                <div class="nestedAccordion ac-container">
+                    <input id="bodyListTable" type="checkbox" />
+                    <label for="bodyListTable">パーツ一覧</label>
+                    <article>
+                        重量上限:<input type="number" data-bind="value: filterBodyWeight"/>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>名前</td>
+                                    <td>重量</td>
+                                    <td>走行</td>
+                                    <td>ブースト</td>
+                                    <td>SP</td>
+                                    <td>エリア移動</td>
+                                    <td>チップ容量</td>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: filterdBody">
+                                <tr>
+                                    <td data-bind="text: name"></td>
+                                    <td data-bind="    text: weight"></td>
+                                    <td data-bind="    text: armor"></td>
+                                    <td data-bind="    text: boosterGen"></td>
+                                    <td data-bind="    text: spGen"></td>
+                                    <td data-bind="    text: areaChange"></td>
+                                    <td data-bind="    text: chipCapacity"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+                </div>
+
             </article>
         </div>
         <div class="ac-container">
@@ -140,6 +205,38 @@
                         チップ容量:<span data-bind="text: selectedArm().chipCapacity"></span><br />
                     </div>
                 </div>
+                <div class="nestedAccordion ac-container">
+                    <input id="armListTable" type="checkbox" />
+                    <label for="armListTable">パーツ一覧</label>
+                    <article>
+                        重量上限:<input type="number" data-bind="value: filterArmWeight"/>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>名前</td>
+                                    <td>重量</td>
+                                    <td>装甲</td>
+                                    <td>反動吸収</td>
+                                    <td>リロード</td>
+                                    <td>武器切替</td>
+                                    <td>チップ容量</td>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: filterdArm">
+                                <tr>
+                                    <td data-bind="text: name"></td>
+                                    <td data-bind="    text: weight"></td>
+                                    <td data-bind="    text: armor"></td>
+                                    <td data-bind="    text: recoil"></td>
+                                    <td data-bind="    text: reload"></td>
+                                    <td data-bind="    text: weaponChange"></td>
+                                    <td data-bind="    text: chipCapacity"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+                </div>
+
             </article>
         </div>
         <div class="ac-container">
@@ -157,24 +254,81 @@
                         チップ容量:<span data-bind="text: selectedLeg().chipCapacity"></span><br />
                     </div>
                 </div>
+                <div class="nestedAccordion ac-container">
+                    <input id="legListTable" type="checkbox" />
+                    <label for="legListTable">パーツ一覧</label>
+                    <article>
+                        重量上限:<input type="number" data-bind="value: filterLegWeight"/>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>名前</td>
+                                    <td>重量</td>
+                                    <td>装甲</td>
+                                    <td>歩行</td>
+                                    <td>ダッシュ</td>
+                                    <td>重量耐性</td>
+                                    <td>チップ容量</td>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: filterdLeg">
+                                <tr>
+                                    <td data-bind="text: name"></td>
+                                    <td data-bind="    text: weight"></td>
+                                    <td data-bind="    text: armor"></td>
+                                    <td data-bind="    text: walk"></td>
+                                    <td data-bind="    text: dash"></td>
+                                    <td data-bind="    text: weightCapacity"></td>
+                                    <td data-bind="    text: chipCapacity"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+                </div>
+
             </article>
         </div>
     </div>
 
-    <div style="margin-top: 20px">
-        主な未実装項目
-        <ul>
-            <li>チップ</li>
-            <li>装甲平均値計測</li>
-            <li>パラメータ実値</li>
-            <li>レイアウト</li>
-        </ul>
+    <div class="ac-container">
+        <input id="ac-3" type="checkbox" />
+        <label for="ac-3">チップ</label>
+        <article>
+            特殊機能
+            <div class="chip" data-bind="foreach: advanceChipList">
+                <span data-bind="text: name"></span>
+                <span data-bind="text: cost"></span>
+                <input type="checkbox" data-bind="checked: selected" />
+            </div>
+            機体強化
+            <div class="chip" data-bind="foreach: enhanceChipList">
+                <span data-bind="text: name"></span>
+                <span data-bind="text: cost"></span>
+                <input type="checkbox" data-bind="checked: selected" />
+            </div>
+            アクション
+            <div class="chip" data-bind="foreach: actionChipList">
+                <span data-bind="text: name"></span>
+                <span data-bind="text: cost"></span>
+                <input type="checkbox" data-bind="checked: selected" />
+            </div>
+        </article>
+    </div>
+
+    <div class="ac-container">
+        <input id="ac-4" type="checkbox" />
+        <label for="ac-4">要請兵器</label>
+        <article>
+            <select data-bind="options: boltonArmList, value: selectedBoltOnArm, optionsText: 'name'"></select>重量:<span data-bind="    text: selectedBoltOnArm().weight"></span>
+            <input id="onBOA" type="checkbox" data-bind="checked: addBoltonArmWeight" />
+            <label for="onBOA">要請兵器の重量を有効にする</label>
+        </article>
     </div>
 
     <footer>
         <p>sourcecode on <a href="https://github.com/gitnsy/offlinable-asmsim">GitHub</a></p>
         <p>issues(known bugs and feature plan):<a href="https://github.com/gitnsy/offlinable-asmsim/issues?state=open">GitHub offlinable-asmsim issues</a></p>
-        <p>create by:<a href="https://twitter.com/tw_nsy">nsy</a></p>
+        <p>creating by:<a href="https://twitter.com/tw_nsy">nsy</a></p>
         <p>©SEGA</p>
     </footer>
 
@@ -204,6 +358,8 @@
         <script src="Scripts/asmsim/data/supportassist.js"></script>
         <script src="Scripts/asmsim/data/supportsp.js"></script>
         <script src="Scripts/asmsim/data/setbonus.js"></script>
+        <script src="Scripts/asmsim/data/chip.js"></script>
+        <script src="Scripts/asmsim/data/boltonarms.js"></script>
 
         <script>
             (function (i, s, o, g, r, a, m) {
@@ -222,7 +378,7 @@
         </script>
 
         <script type="text/html" id="speedSummary">
-            <span data-bind="    text: totalWeight"></span>/<span data-bind="    text: capacity"></span><span data-bind=""></span>
+            <span data-bind="    text: totalWeight"></span>/<span data-bind="    text: capacity"></span> 猶予:<span data-bind="    text: (capacity() - totalWeight())"></span>
             <div class="weapon" style>
                 <div class="main">main:<select data-bind="options: mains, value: main, optionsText: 'name'"></select>重量:<span data-bind="    text: main().weight"></span></div>
                 <div class="sub">sub:<select data-bind="options: subs, value: sub, optionsText: 'name'"></select>重量:<span data-bind="    text: sub().weight"></span></div>

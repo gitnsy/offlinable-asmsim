@@ -1,8 +1,8 @@
 ﻿.nestedAccordion {
-    margin-left:2px;
+    margin-left: 2px;
 }
 
-.ac-container label{
+.ac-container > label {
     font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
     padding: 5px 20px;
     position: relative;
@@ -15,23 +15,21 @@
     line-height: 33px;
     font-size: 19px;
     background: linear-gradient(top, #ffffff 1%,#eaeaea 100%);
-    box-shadow:
-        0px 0px 0px 1px rgba(155,155,155,0.3),
-        1px 0px 0px 0px rgba(255,255,255,0.9) inset,
-        0px 2px 2px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 1px 0px 0px 0px rgba(255,255,255,0.9) inset, 0px 2px 2px rgba(0,0,0,0.1);
 }
+
 .ac-container > input:checked + label,
-.ac-container > input:checked + label:hover{
+.ac-container > input:checked + label:hover {
     background: #c6e1ec;
     color: #3d7489;
     text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
-    box-shadow:
-        0px 0px 0px 1px rgba(155,155,155,0.3),
-        0px 2px 2px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3), 0px 2px 2px rgba(0,0,0,0.1);
 }
 
-
+article.summary span.partsInfo span {
+    margin-right: 3px;
+}
 
 footer > p {
-    margin:0px;
+    margin: 0px;
 }

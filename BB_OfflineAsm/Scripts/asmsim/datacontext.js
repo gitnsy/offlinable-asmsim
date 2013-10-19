@@ -68,4 +68,18 @@
     asmsim.datacontext.prototype.getSniperSpWeaponList = function () {
         return asmsim.data.snipersp;
     };
+
+    //others
+    asmsim.datacontext.prototype.advanceChip = function () {
+        return asmsim.data.advanceChip;
+    };
+    asmsim.datacontext.prototype.enhanceChip = function () {
+        return asmsim.data.enhanceChip;
+    };
+    asmsim.datacontext.prototype.actionChip = function () {
+        return asmsim.data.actionChip;
+    };
+    asmsim.datacontext.prototype.boltOnArms = function () {
+        return asmsim.data.boltOnArms;
+    };
 })(asmsim = asmsim || {});
