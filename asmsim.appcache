@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-# version 2013-10-14 v0.3.2 SetBonus/spell miss
+# version 2013-10-20 v1.0.0 FirstRelease
 
 CACHE:
 index.html
@@ -29,6 +29,8 @@ Scripts/asmsim/data/supportsub.js
 Scripts/asmsim/data/supportassist.js
 Scripts/asmsim/data/supportsp.js
 Scripts/asmsim/data/setbonus.js
+Scripts/asmsim/data/chip.js
+Scripts/asmsim/data/boltonarms.js
 css/top.css
 css/accordion.css
 

@@ -25,11 +25,11 @@
 , new Body("E.D.G.-α", "D-", "D", "B", "A+", "EDG", 1250, 2.6)
 , new Body("E.D.G.-β", "D-", "C+", "C", "A+", "EDG", 1280, 2.7)
 , new Body("E.D.G.-δ", "D", "E", "A+", "A+", "EDG", 1250, 2.4)
-, new Body("E.D.G.-θ", "D+", "B", "C-", "A+", "EDG", 2, 1200)
+, new Body("E.D.G.-θ", "D+", "B", "C-", "A+", "EDG", 1200, 2)
 , new Body("ディスカス・プロト", "B", "C-", "C+", "C+", "Discus", 1300, 1.7)
 , new Body("ディスカス・ダート", "C+", "B-", "D+", "B-", "Discus", 1260, 2.1)
 , new Body("ディスカス・ノヴァ", "B+", "D+", "B+", "C+", "Discus", 1380, 1.7)
-, new Body("ディスカス・エヴォル", "B", "B+", "C", "C+", "Discus", 1.7, 1330)
+, new Body("ディスカス・エヴォル", "B", "B+", "C", "C+", "Discus", 1330, 1.7)
 , new Body("ネレイド45", "C", "B", "D", "B+", "Nereid", 1200, 2)
 , new Body("ネレイド45改", "C", "C+", "C", "B+", "Nereid", 1220, 1.9)
 , new Body("ネレイド46", "D+", "A-", "D", "B+", "Nereid", 1260, 2.5)
@@ -73,7 +73,7 @@
 , new Body("フォーミュラⅡ型", "D-", "C-", "C+", "A-", "Formula", 1140, 2.5)
 , new Body("フォーミュラⅡ型C", "D-", "B", "D+", "A-", "Formula", 1160, 2.7)
 , new Body("フォーミュラF型", "D+", "E+", "B+", "A-", "Formula", 1200, 2.4)
-, new Body("アスラ", "E", "C+", "D+", "A-", "ASURA", 2.6, 1020)
-, new Body("アスラ・弐", "E", "D+", "B-", "A-", "ASURA", 2.3, 1040)
-, new Body("アスラ・参", "E", "B+", "D", "A-", "ASURA", 2.7, 1080)];
+, new Body("アスラ", "E", "C+", "D+", "A-", "ASURA", 1020, 2.6)
+, new Body("アスラ・弐", "E", "D+", "B-", "A-", "ASURA", 1040, 2.3)
+, new Body("アスラ・参", "E", "B+", "D", "A-", "ASURA", 1080, 2.7)];
 })(asmsim.data);

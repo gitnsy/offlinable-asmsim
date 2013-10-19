@@ -3,7 +3,24 @@
 var asmsim = asmsim || {};
 (function (asmsim, datacontext) {
     asmsim.viewModel = function ViewModel() {
-        var self = this;
+        var self = this
+        , filters = {
+            eq: function (a, b) {
+                return a === b;
+            },
+            mt: function (a, b) {
+                return a <= b;
+            },
+            lt: function (a, b) {
+                return a >= b;
+            }
+        }
+        , partsRank = ["S", "A+", "A", "B-", "B+", "B", "C-", "C+", "C", "D-", "D+", "D", "E-", "E-", "E-"]
+        ;
+        function Filter(name, routine) {
+            this.name = name;
+            this.filterRoutine = routine;
+        }
 
         this.headList = ko.observableArray(datacontext.getHeadList());
         this.bodyList = ko.observableArray(datacontext.getBodyList());
@@ -30,6 +47,12 @@ var asmsim = asmsim || {};
         this.supportAssistWeapons = ko.observableArray(datacontext.getSupportAssistWeaponList());
         this.supportSpWeapons = ko.observableArray(datacontext.getSupportSpWeaponList());
 
+        this.boltonArmList = ko.observable(datacontext.boltOnArms());
+
+        this.advanceChipList = ko.observableArray(datacontext.advanceChip().map(function (a) { a.selected = ko.observable(false); return a; }));
+        this.enhanceChipList = ko.observableArray(datacontext.enhanceChip().map(function (a) { a.selected = ko.observable(false); return a; }));
+        this.actionChipList = ko.observableArray(datacontext.actionChip().map(function (a) { a.selected = ko.observable(false); return a; }));
+
         //user's selected
         this.selectedHead = ko.observable(self.headList()[0]);
         this.selectedBody = ko.observable(self.bodyList()[0]);
@@ -55,8 +78,38 @@ var asmsim = asmsim || {};
         this.selectedSupportSub = ko.observable(datacontext.getSupportSubWeaponList()[0]);
         this.selectedSupportAssist = ko.observable(datacontext.getSupportAssistWeaponList()[0]);
         this.selectedSupportSp = ko.observable(datacontext.getSupportSpWeaponList()[0]);
+        
+        this.selectedBoltOnArm = ko.observable(self.boltonArmList()[0]);
+        this.addBoltonArmWeight = ko.observable(false);
+
+        this.filterHeadWeight = ko.observable();
+        this.filterBodyWeight = ko.observable();
+        this.filterArmWeight = ko.observable();
+        this.filterLegWeight = ko.observable();
 
         this.exParams = ko.observable(0);
+
+        //computed
+        this.filterdHead = ko.computed(function () {
+            return self.filterHeadWeight() == null || self.filterHeadWeight() == false || isNaN(+self.filterHeadWeight())
+                ? self.headList()
+                : self.headList().filter(function (a) { return +self.filterHeadWeight() >= a.weight; });
+        });
+        this.filterdBody = ko.computed(function () {
+            return self.filterBodyWeight() == null || self.filterBodyWeight() == false || isNaN(+self.filterBodyWeight())
+                ? self.bodyList()
+                : self.bodyList().filter(function (a) { return +self.filterBodyWeight() >= a.weight; });
+        });
+        this.filterdArm = ko.computed(function () {
+            return self.filterArmWeight() == null || self.filterArmWeight() == false || isNaN(+self.filterArmWeight())
+                ? self.armList()
+                : self.armList().filter(function (a) { return +self.filterArmWeight() >= a.weight; });
+        });
+        this.filterdLeg = ko.computed(function () {
+            return self.filterLegWeight() == null || self.filterLegWeight() == false || isNaN(+self.filterLegWeight())
+                ? self.legList()
+                : self.legList().filter(function (a) { return +self.filterLegWeight() >= a.weight; });
+        });
 
         this.setBonus = ko.computed(function () {
             var sb = (self.selectedHead().bland === self.selectedBody().bland
@@ -72,7 +125,9 @@ var asmsim = asmsim || {};
             return self.selectedHead().weight
                 + self.selectedBody().weight
                 + self.selectedArm().weight
-                + self.selectedLeg().weight;
+                + self.selectedLeg().weight
+                + (self.addBoltonArmWeight() ? self.selectedBoltOnArm().weight : 0)
+            ;
         });
 
         this.assaultWeight = ko.computed(function () {
@@ -108,26 +163,36 @@ var asmsim = asmsim || {};
         });
 
         this.armorAvarage = ko.computed(function () {
-            return (self.selectedHead().armor
-                + self.selectedBody().armor
-                + self.selectedArm().armor
-                + self.selectedLeg().armor) / 4;
+            return ((asmsim.data.armorRealValue[self.selectedHead().armor]
+                + asmsim.data.armorRealValue[self.selectedBody().armor]
+                + asmsim.data.armorRealValue[self.selectedArm().armor]
+            + asmsim.data.armorRealValue[self.selectedLeg().armor] )/4*100) +"%";
         });
 
         this.totalChipCapacity = ko.computed(function () {
-            //return self.selectedHead().chipCapacity
-            //    + self.selectedBody().chipCapacity
-            //    + self.selectedArm().chipCapacity
-            //    + self.selectedLeg().chipCapacity;
-            //少数の挙動が怪しい。上だと杖38NXNXIで少数がやけに続いた。とりあえず整数で計算できるよう変更
             return (self.selectedHead().chipCapacity * 10
                 + self.selectedBody().chipCapacity * 10
                 + self.selectedArm().chipCapacity * 10
                 + self.selectedLeg().chipCapacity * 10) / 10;
         });
 
+        this.totalChipCost = ko.computed(function () {
+            var result = 0;
+            self.actionChipList().filter(function (a) { return a.selected() }).forEach(function (a) {
+                result += a.cost;
+            })
+            self.enhanceChipList().filter(function (a) { return a.selected() }).forEach(function (a) {
+                result += a.cost;
+            })
+            self.advanceChipList().filter(function (a) { return a.selected() }).forEach(function (a) {
+                result += a.cost;
+            })
+            return result;
+        });
+
         this.capacity = ko.computed(function () {
-            return asmsim.data.weightCapacityRealvalue[self.selectedLeg().weightCapacity] + self.exParams();
+            return asmsim.data.weightCapacityRealvalue[self.selectedLeg().weightCapacity]
+                + self.exParams();
         });
     }
 
