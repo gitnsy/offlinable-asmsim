@@ -75,6 +75,8 @@
     <Content Include="Scripts\asmsim\datacontext.js" />
     <Content Include="Scripts\asmsim\data\assaultmain.js" />
     <Content Include="Scripts\asmsim\data\bodyParts.js" />
+    <Content Include="Scripts\asmsim\data\boltonarms.js" />
+    <Content Include="Scripts\asmsim\data\chip.js" />
     <Content Include="Scripts\asmsim\data\headParts.js" />
     <Content Include="Scripts\asmsim\data\legParts.js" />
     <Content Include="Scripts\asmsim\data\armParts.js" />
