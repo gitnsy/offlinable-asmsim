@@ -1,10 +1,23 @@
 ﻿<!DOCTYPE html>
-<html manifest="asmsim.appcache">
+<html>
+<!--<html manifest="asmsim.appcache">-->
 <head>
     <meta charset="UTF-8">
     <title>BB-AsmSim</title>
     <link rel="stylesheet" href="css/top.css" />
     <link rel="stylesheet" href="css/accordion.css" />
+
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-44868550-1', 'gitnsy.github.io');
+            ga('send', 'pageview');
+        </script>
 </head>
 <body>
     <h1>BB-AsmSim</h1>
@@ -359,18 +372,6 @@
         <script src="Scripts/asmsim/data/setbonus.js"></script>
         <script src="Scripts/asmsim/data/chip.js"></script>
         <script src="Scripts/asmsim/data/boltonarms.js"></script>
-
-        <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-            ga('create', 'UA-44868550-1', 'gitnsy.github.io');
-            ga('send', 'pageview');
-        </script>
 
         <script type="text/html" id="frameParts">
             <select data-bind="options: list, value: target, optionsText: 'name'"></select>
