@@ -2,25 +2,66 @@
 /// <reference path="datacontext.js" />
 var asmsim = asmsim || {};
 (function (asmsim, datacontext) {
+    var partsTable = [
+        "S",
+        "A+", "A", "A-",
+        "B+", "B", "B-",
+        "C+", "C", "C-",
+        "D+", "D", "D-",
+        "E+", "E", "E-"];
+
+
+    function Filter(comparator) {
+        var self = this;
+
+        this.sourceProvider = function (a, s) { return a[s] };
+        this.sourceProp = ko.observable();
+        this.targetProvider = ko.observable();
+        this.target = ko.observable();
+        this.comparator = ko.observable(comparator);
+
+        this.result = ko.computed(function () {
+            return function (s) {
+                return self.comparator()(self.sourceProvider(s, self.sourceProp())
+                    , self.target())
+            };
+        });
+    }
+
     asmsim.viewModel = function ViewModel() {
-        var self = this
-        , filters = {
-            eq: function (a, b) {
-                return a === b;
-            },
-            mt: function (a, b) {
-                return a <= b;
-            },
-            lt: function (a, b) {
-                return a >= b;
-            }
-        }
-        , partsRank = ["S", "A+", "A", "B-", "B+", "B", "C-", "C+", "C", "D-", "D+", "D", "E-", "E-", "E-"]
-        ;
-        function Filter(name, routine) {
-            this.name = name;
-            this.filterRoutine = routine;
-        }
+        var self = this;
+
+        this.partsRank = partsTable;
+        this.headProps = [
+            { name: "装甲", prop: "armor" },
+            { name: "射撃補正", prop: "shotAdjust" },
+            { name: "索敵", prop: "search" },
+            { name: "ロックオン", prop: "lockon" }
+        ];
+        this.bodyProps = [
+            { name: "装甲", prop: "armor" },
+            { name: "ブースト", prop: "boosterGen" },
+            { name: "SP", prop: "spGen" },
+            { name: "エリア移動", prop: "areaChange" }
+        ];
+        this.armProps = [
+            { name: "装甲", prop: "armor" },
+            { name: "反動吸収", prop: "recoil" },
+            { name: "リロード", prop: "reload" },
+            { name: "武器切替", prop: "weaponChange" },
+        ];
+        this.legProps = [
+            { name: "装甲", prop: "armor" },
+            { name: "歩行", prop: "walk" },
+            { name: "ダッシュ", prop: "dash" },
+            { name: "重量耐性", prop: "weightCapacity" }
+        ];
+
+        this.filters = [{ name: "(none)", routine: function (s, o) { return true } },
+            { name: "等しい", routine: function (s, o) { return partsTable.indexOf(s) === partsTable.indexOf(o) } },
+            { name: "以上", routine: function (s, o) { return partsTable.indexOf(s) <= partsTable.indexOf(o) } },
+            { name: "以下", routine: function (s, o) { return partsTable.indexOf(s) >= partsTable.indexOf(o) } }
+        ];
 
         this.headList = ko.observableArray(datacontext.getHeadList());
         this.bodyList = ko.observableArray(datacontext.getBodyList());
@@ -87,30 +128,14 @@ var asmsim = asmsim || {};
         this.filterArmWeight = ko.observable();
         this.filterLegWeight = ko.observable();
 
+        this.headFilters = ko.observableArray([new Filter(self.filters[0].routine)]);
+        this.bodyFilters = ko.observableArray([new Filter(self.filters[0].routine)]);
+        this.armFilters = ko.observableArray([new Filter(self.filters[0].routine)]);
+        this.legFilters = ko.observableArray([new Filter(self.filters[0].routine)]);
+
         this.exParams = ko.observable(0);
 
         //computed
-        this.filterdHead = ko.computed(function () {
-            return self.filterHeadWeight() == null || self.filterHeadWeight() == false || isNaN(+self.filterHeadWeight())
-                ? self.headList()
-                : self.headList().filter(function (a) { return +self.filterHeadWeight() >= a.weight; });
-        });
-        this.filterdBody = ko.computed(function () {
-            return self.filterBodyWeight() == null || self.filterBodyWeight() == false || isNaN(+self.filterBodyWeight())
-                ? self.bodyList()
-                : self.bodyList().filter(function (a) { return +self.filterBodyWeight() >= a.weight; });
-        });
-        this.filterdArm = ko.computed(function () {
-            return self.filterArmWeight() == null || self.filterArmWeight() == false || isNaN(+self.filterArmWeight())
-                ? self.armList()
-                : self.armList().filter(function (a) { return +self.filterArmWeight() >= a.weight; });
-        });
-        this.filterdLeg = ko.computed(function () {
-            return self.filterLegWeight() == null || self.filterLegWeight() == false || isNaN(+self.filterLegWeight())
-                ? self.legList()
-                : self.legList().filter(function (a) { return +self.filterLegWeight() >= a.weight; });
-        });
-
         this.setBonus = ko.computed(function () {
             var sb = (self.selectedHead().bland === self.selectedBody().bland
                 && self.selectedHead().bland === self.selectedArm().bland
@@ -194,6 +219,34 @@ var asmsim = asmsim || {};
             return asmsim.data.weightCapacityRealvalue[self.selectedLeg().weightCapacity]
                 + self.exParams();
         });
+
+        //this.addFilter = function(data,event,currentFilter) {
+        //    currentFilters().push(new Filter(self.filters[0].routine));
+        //}
+
+        this.filterdArm = ko.computed(function () {
+            return filtering(self.armList(), self.armFilters(),self.filterArmWeight())
+        });
+        this.filterdHead = ko.computed(function () {
+            return filtering(self.headList(), self.headFilters(), self.filterHeadWeight())
+        });
+        this.filterdBody = ko.computed(function () {
+            return filtering(self.bodyList(), self.bodyFilters(), self.filterBodyWeight())
+        });
+        this.filterdLeg = ko.computed(function () {
+            return filtering(self.legList(), self.legFilters(), self.filterLegWeight())
+        });
+        
+        function filtering(s, filter,weight) {
+            s = weight == null || weight == false || isNaN(+weight)
+                ? s
+                : s.filter(function (a) { return +weight >= a.weight; });
+            for (var i = 0; i < filter.length; i++) {
+                s = s.filter(filter[i].result());
+            }
+            return s;
+        }
+
     }
 
 })(asmsim, new asmsim.datacontext());

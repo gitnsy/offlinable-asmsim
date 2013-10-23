@@ -58,7 +58,7 @@
 ,new Leg("ランドバルクⅣ型","B","E","C","A","2LEG","LANDBULK",1270,1.4)
 ,new Leg("ヤーデ54","A-","B-","D-","B+","2LEG","JADE",1180,2.3)
 ,new Leg("ヤーデ54S","A","D+","D-","A","2LEG","JADE",1270,2)
-,new Leg("ヤーデ55","A+","C","(D+","B+","2LEG","JADE",1220,1.8)
+,new Leg("ヤーデ55","A+","C","D+","B+","2LEG","JADE",1220,1.8)
 ,new Leg("シュライクⅠ型","D-","B","B+","E","2LEG","Shrike",750,2)
 ,new Leg("シュライクⅡ型","E","A+","B+","E","2LEG","Shrike",700,2)
 ,new Leg("シュライクⅤ型","D-","B-","A+","E","2LEG","Shrike",800,1.4)
