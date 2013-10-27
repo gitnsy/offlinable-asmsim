@@ -1,7 +1,7 @@
 ﻿/// <reference path="../_reference.js" />
 /// <reference path="datacontext.js" />
 var asmsim = asmsim || {};
-(function (asmsim, datacontext) {
+(function (asmsim) {
     var partsTable = [
         "S",
         "A+", "A", "A-",
@@ -9,7 +9,6 @@ var asmsim = asmsim || {};
         "C+", "C", "C-",
         "D+", "D", "D-",
         "E+", "E", "E-"];
-
 
     function Filter(comparator) {
         var self = this;
@@ -28,7 +27,7 @@ var asmsim = asmsim || {};
         });
     }
 
-    asmsim.viewModel = function ViewModel() {
+    asmsim.viewModel = function ViewModel(datacontext) {
         var self = this;
 
         this.partsRank = partsTable;
@@ -248,5 +247,4 @@ var asmsim = asmsim || {};
         }
 
     }
-
-})(asmsim, new asmsim.datacontext());
+})(asmsim);

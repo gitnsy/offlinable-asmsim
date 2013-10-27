@@ -43,7 +43,7 @@
     </div>
     <div class="ac-container">
         <input id="ac1-1" type="checkbox" />
-        <label for="ac1-1">強襲</label>
+        <label for="ac1-1">強襲 <span data-bind="template: { name: 'ArmamentSummary', data: { totalWeight: assaultWeight, capacity: capacity } }"></span></label>
         <article>
             <span class="assault" data-bind="template: {
     name: 'speedSummary', data: {
@@ -59,7 +59,7 @@
     <div class="ac-container">
 
         <input id="ac1-2" type="checkbox" />
-        <label for="ac1-2">重火力</label>
+        <label for="ac1-2">重火力 <span data-bind="template: { name: 'ArmamentSummary', data: { totalWeight: heavyWeight, capacity: capacity } }"></span></label>
         <article>
             <span class="heavy" data-bind="template: {
     name: 'speedSummary', data: {
@@ -74,7 +74,7 @@
     </div>
     <div class="ac-container">
         <input id="ac1-3" type="checkbox" />
-        <label for="ac1-3">支援</label>
+        <label for="ac1-3">支援 <span data-bind="template: { name: 'ArmamentSummary', data: { totalWeight: supportWeight, capacity: capacity } }"></span></label>
         <article>
             <span class="support" data-bind="template: {
     name: 'speedSummary', data: {
@@ -89,7 +89,7 @@
     </div>
     <div class="ac-container">
         <input id="ac1-4" type="checkbox" />
-        <label for="ac1-4">狙撃</label>
+        <label for="ac1-4">狙撃 <span data-bind="template: { name: 'ArmamentSummary', data: { totalWeight: sniperWeight, capacity: capacity } }"></span></label>
         <article>
             <span class="snipper" data-bind="template: {
     name: 'speedSummary', data: {
@@ -257,6 +257,7 @@
             <input id="ac2-4" type="checkbox" />
             <label for="ac2-4">脚部</label>
             <article>
+                <div data-bind="template: { name: 'frameParts', data: { list: legList, target: selectedLeg } }"></div>
                 <div class="leg">
                     <div>
                         重量:<span data-bind="text: selectedLeg().weight"></span><br />
@@ -271,7 +272,7 @@
                     <input id="legListTable" type="checkbox" />
                     <label for="legListTable">パーツ一覧</label>
                     <article>
-                    <div data-bind="template: { name: 'Filter', data: { weight: filterLegWeight, props: legProps, currentFilters: legFilters } }"></div>
+                        <div data-bind="template: { name: 'Filter', data: { weight: filterLegWeight, props: legProps, currentFilters: legFilters } }"></div>
                         <table>
                             <thead>
                                 <tr>
@@ -342,7 +343,7 @@
         <p>sourcecode on <a href="https://github.com/gitnsy/offlinable-asmsim">GitHub</a></p>
         <p>issues(known bugs and feature plan):<a href="https://github.com/gitnsy/offlinable-asmsim/issues?state=open">GitHub offlinable-asmsim issues</a></p>
         <p>creating by:<a href="https://twitter.com/tw_nsy">nsy</a></p>
-        <p>©SEGA</p>
+        <p>cSEGA</p>
     </footer>
 
     <div>
@@ -378,13 +379,21 @@
             <select data-bind="options: list, value: target, optionsText: 'name'"></select>
         </script>
 
+        <script type="text/html" id="ArmamentSummary">
+            <span data-bind="    text: totalWeight"></span>/
+            <span data-bind="    text: capacity"></span>
+            猶予:<span data-bind="    text: (capacity() - totalWeight())"></span>
+            <span data-bind="    visible: (capacity() - totalWeight()) < 0"><span>速度減衰:</span>
+                <span data-bind="    text: ((((capacity() - totalWeight()) / 10) * 0.25) + '%')"></span></span>
+        </script>
+
         <script type="text/html" id="speedSummary">
-            <span data-bind="    text: totalWeight"></span>/<span data-bind="    text: capacity"></span> 猶予:<span data-bind="    text: (capacity() - totalWeight())"></span>
             <div class="weapon" style>
-                <div class="main">main:<select data-bind="options: mains, value: main, optionsText: 'name'"></select>重量:<span data-bind="    text: main().weight"></span></div>
-                <div class="sub">sub:<select data-bind="options: subs, value: sub, optionsText: 'name'"></select>重量:<span data-bind="    text: sub().weight"></span></div>
-                <div class="assist">assist:<select data-bind="options: assists, value: assist, optionsText: 'name'"></select>重量:<span data-bind="    text: assist().weight"></span></div>
-                <div class="sp">sp:<select data-bind="options: sps, value: sp, optionsText: 'name'"></select>重量:<span data-bind="    text: sp().weight"></span></div>
+                <span data-bind="template: { name: 'ArmamentSummary', data: { totalWeight: totalWeight, capacity: capacity } }"></span>
+                <div class="main">主:<select data-bind="options: mains, value: main, optionsText: 'name'"></select>重量:<span data-bind="    text: main().weight"></span></div>
+                <div class="sub">副:<select data-bind="options: subs, value: sub, optionsText: 'name'"></select>重量:<span data-bind="    text: sub().weight"></span></div>
+                <div class="assist">補:<select data-bind="options: assists, value: assist, optionsText: 'name'"></select>重量:<span data-bind="    text: assist().weight"></span></div>
+                <div class="sp">特:<select data-bind="options: sps, value: sp, optionsText: 'name'"></select>重量:<span data-bind="    text: sp().weight"></span></div>
             </div>
         </script>
 
@@ -393,7 +402,7 @@
             重量上限:<input type="number" data-bind="value: weight" />
             <!--<input type="button" value="フィルタ追加" data-bind="click: function (currentFilters) { $root.addFilter(data,event) }" />-->
             <span data-bind="foreach: currentFilters">
-                <select data-bind="options: $parents[0].props, value: sourceProp, optionsText:'name',optionsValue:'prop'"></select>
+                <select data-bind="options: $parents[0].props, value: sourceProp, optionsText: 'name', optionsValue: 'prop'"></select>
                 <select data-bind="options: $root.partsRank, value: target"></select>
                 <select data-bind="options: $root.filters, optionsText: 'name', value: comparator, optionsValue: 'routine' "></select>
                 <!--<input type="button" value="削除" disabled="disabled" />-->
@@ -401,7 +410,7 @@
         </script>
 
         <script>
-            vm = new asmsim.viewModel();
+            vm = new asmsim.viewModel(new asmsim.datacontext());
             ko.applyBindings(vm);
         </script>
     </div>
