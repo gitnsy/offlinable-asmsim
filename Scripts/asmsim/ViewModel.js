@@ -1,5 +1,8 @@
 ﻿/// <reference path="../_reference.js" />
 /// <reference path="datacontext.js" />
+/// <reference path="serializer.js" />
+
+
 var asmsim = asmsim || {};
 (function (asmsim) {
     var partsTable = [
@@ -118,7 +121,7 @@ var asmsim = asmsim || {};
         this.selectedSupportSub = ko.observable(datacontext.getSupportSubWeaponList()[0]);
         this.selectedSupportAssist = ko.observable(datacontext.getSupportAssistWeaponList()[0]);
         this.selectedSupportSp = ko.observable(datacontext.getSupportSpWeaponList()[0]);
-        
+
         this.selectedBoltOnArm = ko.observable(self.boltonArmList()[0]);
         this.addBoltonArmWeight = ko.observable(false);
 
@@ -190,7 +193,7 @@ var asmsim = asmsim || {};
             return ((asmsim.data.armorRealValue[self.selectedHead().armor]
                 + asmsim.data.armorRealValue[self.selectedBody().armor]
                 + asmsim.data.armorRealValue[self.selectedArm().armor]
-            + asmsim.data.armorRealValue[self.selectedLeg().armor] )/4*100) +"%";
+            + asmsim.data.armorRealValue[self.selectedLeg().armor]) / 4 * 100) + "%";
         });
 
         this.totalChipCapacity = ko.computed(function () {
@@ -224,7 +227,7 @@ var asmsim = asmsim || {};
         //}
 
         this.filterdArm = ko.computed(function () {
-            return filtering(self.armList(), self.armFilters(),self.filterArmWeight())
+            return filtering(self.armList(), self.armFilters(), self.filterArmWeight())
         });
         this.filterdHead = ko.computed(function () {
             return filtering(self.headList(), self.headFilters(), self.filterHeadWeight())
@@ -235,8 +238,8 @@ var asmsim = asmsim || {};
         this.filterdLeg = ko.computed(function () {
             return filtering(self.legList(), self.legFilters(), self.filterLegWeight())
         });
-        
-        function filtering(s, filter,weight) {
+
+        function filtering(s, filter, weight) {
             s = weight == null || weight == false || isNaN(+weight)
                 ? s
                 : s.filter(function (a) { return +weight >= a.weight; });
@@ -244,6 +247,43 @@ var asmsim = asmsim || {};
                 s = s.filter(filter[i].result());
             }
             return s;
+        }
+
+        this.apply = function (converted) {
+            var foo = [
+                { prop: "h", source: "headList", target: "selectedHead" },
+                { prop: "b", source: "bodyList", target: "selectedBody" },
+                { prop: "a", source: "armList", target: "selectedArm" },
+                { prop: "l", source: "legList", target: "selectedLeg" },
+                { prop: "am", source: "assaultMainWeapons", target: "selectedAssaultMain" },
+                { prop: "as", source: "assaultSubWeapons", target: "selectedAssaultSub" },
+                { prop: "aa", source: "assaultAssistWeapons", target: "selectedAssaultAssist" },
+                { prop: "ax", source: "assaultSpWeapons", target: "selectedAssaultSp" },
+                { prop: "hm", source: "heavyMainWeapons", target: "selectedHeavyMain" },
+                { prop: "hs", source: "heavySubWeapons", target: "selectedHeavySub" },
+                { prop: "ha", source: "heavyAssistWeapons", target: "selectedHeavyAssist" },
+                { prop: "hx", source: "heavySpWeapons", target: "selectedHeavySp" },
+                { prop: "sm", source: "supportMainWeapons", target: "selectedSupportMain" },
+                { prop: "ss", source: "supportSubWeapons", target: "selectedSupportSub" },
+                { prop: "sa", source: "supportAssistWeapons", target: "selectedSupportAssist" },
+                { prop: "sx", source: "supportSpWeapons", target: "selectedSupportSp" },
+                { prop: "nm", source: "sniperMainWeapons", target: "selectedSniperMain" },
+                { prop: "ns", source: "sniperSubWeapons", target: "selectedSniperSub" },
+                { prop: "na", source: "sniperAssistWeapons", target: "selectedSniperAssist" },
+                { prop: "nx", source: "sniperSpWeapons", target: "selectedSniperSp" }
+            ];
+
+            foo.forEach(function myfunction(a) {
+                if (converted[a.prop] != null) {
+                    self[a.source]().every(function (b, i) {
+                        if (b.bland === converted[a.prop].bland && b.rank == converted[a.prop].rank) {
+                            self[a.target](self[a.source]()[i]);
+                            return false;
+                        }
+                        return true
+                    });
+                }
+            });
         }
 
     }

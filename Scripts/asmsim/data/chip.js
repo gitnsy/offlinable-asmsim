@@ -1,10 +1,14 @@
 ﻿asmsim.data = asmsim.data || {};
 (function (data) {
-    function Chip(name, cost) {
+    function Chip(name, cost,bland , rank) {
+        //function Chip(name, bland, cost, rank) {
         this.name = name;
+        this.bland = bland;
         this.cost = cost;
+        this.rank = rank;
     }
 
+    //data.advanceChip = [new Chip("被弾方向表示", "way", 1, 1)
     data.advanceChip = [new Chip("被弾方向表示", 1)
 , new Chip("被ロックオン方向表示", 2)
 , new Chip("被索敵警告", 3)

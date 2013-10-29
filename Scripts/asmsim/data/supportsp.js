@@ -1,18 +1,24 @@
 ﻿asmsim.data = asmsim.data || {};
 (function (data) {
-    data.supportsp = [{ "name": "リペアユニット", "weight": 560 }
-, { "name": "リペアユニットβ", "weight": 600 }
-, { "name": "リペアユニットγ", "weight": 620 }
-, { "name": "Rユニットβ/CV", "weight": 600 }
-, { "name": "リペアショット", "weight": 490 }
-, { "name": "リペアショットβ", "weight": 540 }
-, { "name": "リペアショットγ", "weight": 510 }
-, { "name": "リペアポスト", "weight": 480 }
-, { "name": "リペアポストβ", "weight": 520 }
-, { "name": "リペアポストγ", "weight": 530 }
-, { "name": "リペアフィールド", "weight": 530 }
-, { "name": "リペアフィールドβ", "weight": 570 }
-, { "name": "リペアセントリー", "weight": 450 }
-, { "name": "リペアセントリーβ", "weight": 490 }
-, { "name": "リペアセントリーγ", "weight": 460 }];
+    function SupportSp(name, bland, weight, rank) {
+        this.name = name;
+        this.bland = bland;
+        this.weight = weight;
+        this.rank = rank;
+    }
+    data.supportsp = [new SupportSp("リペアユニット", "unit", 560,1)
+, new SupportSp("リペアユニットβ", "unit", 600, 2)
+, new SupportSp("リペアユニットγ", "unit", 620, 3)
+, new SupportSp("Rユニットβ/CV", "unit", 600, 2.1)
+, new SupportSp("リペアショット", "shot", 490,1)
+, new SupportSp("リペアショットβ", "shot", 540, 2)
+, new SupportSp("リペアショットγ", "shot", 510, 3)
+, new SupportSp("リペアポスト", "post", 480, 1)
+, new SupportSp("リペアポストβ", "post", 520, 2)
+, new SupportSp("リペアポストγ", "post", 530, 3)
+, new SupportSp("リペアフィールド", "field", 530,1)
+, new SupportSp("リペアフィールドβ", "field", 570, 2)
+, new SupportSp("リペアセントリー", "sentry", 450, 1)
+, new SupportSp("リペアセントリーβ", "sentry", 490, 2)
+, new SupportSp("リペアセントリーγ", "sentry", 460, 3)];
 })(asmsim.data);
