@@ -1,36 +1,43 @@
 ﻿asmsim.data = asmsim.data || {};
 (function (data) {
-    data.assaultmain = [{ "name": "M90サブマシンガン", "weight": 140 }
-,{"name":"M90Cサブマシンガン","weight":150}
-,{"name":"M91サブマシンガン","weight":160}
-,{"name":"M99サーペント","weight":180}
-,{"name":"M92ヴァイパー","weight":190}
-,{"name":"サーペント/CV","weight":180}
-,{"name":"D90デュアル","weight":290}
-,{"name":"D90カスタム","weight":270}
-,{"name":"D92ジェイナス","weight":310}
-,{"name":"D99オルトロス","weight":320}
-,{"name":"ヴォルペ突撃銃","weight":220}
-,{"name":"ヴォルペ突撃銃C","weight":210}
-,{"name":"ヴォルペ突撃銃FAM","weight":230}
-,{"name":"ヴォルペ・スコーピオ","weight":240}
-,{"name":"ヴォルペ・メガロ","weight":250}
-,{"name":"スイッチアサルト","weight":300}
-,{"name":"スイッチアサルトC","weight":280}
-,{"name":"スイッチアサルトR","weight":340}
-,{"name":"スイッチアサルトII","weight":350}
-,{"name":"電磁加速砲・壱式","weight":280}
-,{"name":"電磁加速砲・弐式","weight":290}
-,{"name":"電磁加速砲・特式","weight":310}
-,{"name":"電磁加速砲・紫電","weight":320}
-,{"name":"電磁加速砲・速式","weight":340}
-,{"name":"VOLT-01","weight":190}
-,{"name":"VOLT-02","weight":180}
-,{"name":"VOLT-R","weight":210}
-,{"name":"VOLT-X","weight":230}
-,{"name":"VOLT-RX","weight":250}
-,{"name":"STAR-05","weight":250}
-,{"name":"STAR-10","weight":240}
-,{"name":"STAR-10C","weight":290}
-,{"name":"STAR-20","weight":270}];
+    function AssaultMain(name, bland, weight, rank) {
+        this.name = name;
+        this.bland = bland;
+        this.weight = weight;
+        this.rank = rank;
+    }
+
+    data.assaultmain = [new AssaultMain("M90サブマシンガン", "smg", 140, 1)
+, new AssaultMain("M90Cサブマシンガン", "smg", 150, 2)
+, new AssaultMain("M91サブマシンガン", "smg", 160, 3)
+, new AssaultMain("M99サーペント", "smg", 180, 4)
+, new AssaultMain("M92ヴァイパー", "smg", 190, 5)
+, new AssaultMain("サーペント/CV", "smg", 180, 4.1)
+, new AssaultMain("D90デュアル", "dual", 290,1)
+, new AssaultMain("D90カスタム", "dual", 270, 2)
+, new AssaultMain("D92ジェイナス", "dual", 310, 3)
+, new AssaultMain("D99オルトロス", "dual", 320, 4)
+, new AssaultMain("ヴォルペ突撃銃", "volpe", 220,1)
+, new AssaultMain("ヴォルペ突撃銃C", "volpe", 210, 2)
+, new AssaultMain("ヴォルペ突撃銃FAM", "volpe", 230, 3)
+, new AssaultMain("ヴォルペ・スコーピオ", "volpe", 240, 4)
+, new AssaultMain("ヴォルペ・メガロ", "volpe", 250, 5)
+, new AssaultMain("スイッチアサルト", "swa", 300,1)
+, new AssaultMain("スイッチアサルトC", "swa", 280, 2)
+, new AssaultMain("スイッチアサルトR", "swa", 340, 3)
+, new AssaultMain("スイッチアサルトII", "swa", 350, 4)
+, new AssaultMain("電磁加速砲・壱式", "rgun", 280,1)
+, new AssaultMain("電磁加速砲・弐式", "rgun", 290, 2)
+, new AssaultMain("電磁加速砲・特式", "rgun", 310, 3)
+, new AssaultMain("電磁加速砲・紫電", "rgun", 320, 4)
+, new AssaultMain("電磁加速砲・速式", "rgun", 340, 5)
+, new AssaultMain("VOLT-01", "volt", 190,1)
+, new AssaultMain("VOLT-02", "volt", 180, 2)
+, new AssaultMain("VOLT-R", "volt", 210, 3)
+, new AssaultMain("VOLT-X", "volt", 230, 4)
+, new AssaultMain("VOLT-RX", "volt", 250, 5)
+, new AssaultMain("STAR-05", "star", 250,1)
+, new AssaultMain("STAR-10", "star", 240, 2)
+, new AssaultMain("STAR-10C", "star", 290, 3)
+, new AssaultMain("STAR-20", "star", 270, 4)];
 })(asmsim.data);

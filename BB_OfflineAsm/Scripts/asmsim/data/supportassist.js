@@ -1,24 +1,30 @@
 ﻿asmsim.data = asmsim.data || {};
 (function (data) {
-    data.supportassist = [{ "name": "ラーク偵察機", "weight": 400 }
-, { "name": "ファルコン偵察機", "weight": 420 }
-, { "name": "アウル偵察機", "weight": 460 }
-, { "name": "ロビン偵察機", "weight": 410 }
-, { "name": "ストーク偵察機", "weight": 430 }
-, { "name": "ガルーダ", "weight": 420 }
-, { "name": "索敵センサー", "weight": 350 }
-, { "name": "小型索敵センサー", "weight": 280 }
-, { "name": "広域索敵センサー", "weight": 400 }
-, { "name": "軽量索敵センサー", "weight": 250 }
-, { "name": "滞空索敵弾", "weight": 370 }
-, { "name": "小型滞空索敵弾", "weight": 360 }
-, { "name": "広域滞空索敵弾", "weight": 420 }
-, { "name": "レーダーユニット", "weight": 410 }
-, { "name": "レーダーユニットII", "weight": 420 }
-, { "name": "スタナーJ", "weight": 320 }
-, { "name": "スタナーJ2", "weight": 350 }
-, { "name": "スタナーK", "weight": 370 }
-, { "name": "弾薬BOX", "weight": 300 }
-, { "name": "自律型弾薬BOX", "weight": 320 }];
+    function SupportAssist(name, bland, weight, rank) {
+        this.name = name;
+        this.bland = bland;
+        this.weight = weight;
+        this.rank = rank;
+    }
+        data.supportassist = [new SupportAssist("ラーク偵察機", "spyplane", 400,1)
+, new SupportAssist("ファルコン偵察機", "spyplane", 420,2)
+, new SupportAssist("アウル偵察機", "spyplane", 460,3)
+, new SupportAssist("ロビン偵察機", "spyplane", 410,4)
+, new SupportAssist("ストーク偵察機", "spyplane", 430,5)
+, new SupportAssist("ガルーダ", "spyplane", 420,2.1)
+, new SupportAssist("索敵センサー", "sensor", 350,1)
+, new SupportAssist("小型索敵センサー", "sensor", 280,2)
+, new SupportAssist("広域索敵センサー", "sensor", 400,3)
+, new SupportAssist("軽量索敵センサー", "sensor", 250,4)
+, new SupportAssist("滞空索敵弾", "airsensor", 370,1)
+, new SupportAssist("小型滞空索敵弾", "airsensor", 360, 2)
+, new SupportAssist("広域滞空索敵弾", "airsensor", 420, 3)
+, new SupportAssist("レーダーユニット", "rader", 410,1)
+, new SupportAssist("レーダーユニットII", "rader", 420, 2)
+, new SupportAssist("スタナーJ", "stunner", 320,1)
+, new SupportAssist("スタナーJ2", "stunner", 350, 2)
+, new SupportAssist("スタナーK", "stunner", 370, 3)
+, new SupportAssist("弾薬BOX", "box", 300,1)
+, new SupportAssist("自律型弾薬BOX", "box", 320, 2)];
 
 })(asmsim.data);

@@ -1,22 +1,28 @@
 ﻿asmsim.data = asmsim.data || {};
 (function (data) {
-    data.heavysp = [{ "name": "タイタン榴弾砲", "weight": 900 }
-, { "name": "コロッサス榴弾砲", "weight": 940 }
-, { "name": "アトラント榴弾砲", "weight": 1010 }
-, { "name": "ギガノト榴弾砲", "weight": 1050 }
-, { "name": "ネフィリム榴弾砲", "weight": 1030 }
-, { "name": "タルラッピーキャノン", "weight": 940 }
-, { "name": "エアバスターT10", "weight": 720 }
-, { "name": "エアバスターT25", "weight": 890 }
-, { "name": "エアバスターXHR", "weight": 930 }
-, { "name": "エアバスターT30", "weight": 660 }
-, { "name": "タウル重装砲", "weight": 780 }
-, { "name": "ヴァーゴ重装砲", "weight": 860 }
-, { "name": "ドラード重装砲", "weight": 960 }
-, { "name": "ハイドラ重装砲", "weight": 840 }
-, { "name": "バリアユニット", "weight": 710 }
-, { "name": "バリアユニットβ", "weight": 680 }
-, { "name": "UAD-レモラ", "weight": 600 }
-, { "name": "UAD-ケリブ", "weight": 620 }
-, { "name": "UAD-ガレオス", "weight": 670 }];
+    function HeavySp(name, bland, weight, rank) {
+        this.name = name;
+        this.bland = bland;
+        this.weight = weight;
+        this.rank = rank;
+    }
+    data.heavysp = [new HeavySp("タイタン榴弾砲", "howitzer", 900, 1)
+, new HeavySp("コロッサス榴弾砲", "howitzer", 940, 2)
+, new HeavySp("アトラント榴弾砲", "howitzer", 1010, 3)
+, new HeavySp("ギガノト榴弾砲", "howitzer", 1050, 4)
+, new HeavySp("ネフィリム榴弾砲", "howitzer", 1030, 5)
+, new HeavySp("タルラッピーキャノン", "howitzer", 940, 2.1)
+, new HeavySp("エアバスターT10", "airb", 720,1)
+, new HeavySp("エアバスターT25", "airb", 890, 2)
+, new HeavySp("エアバスターXHR", "airb", 930, 3)
+, new HeavySp("エアバスターT30", "airb", 660, 4)
+, new HeavySp("タウル重装砲", "hcannon", 780,1)
+, new HeavySp("ヴァーゴ重装砲", "hcannon", 860, 2)
+, new HeavySp("ドラード重装砲", "hcannon", 960, 3)
+, new HeavySp("ハイドラ重装砲", "hcannon", 840, 4)
+, new HeavySp("バリアユニット", "barrier", 710, 1)
+, new HeavySp("バリアユニットβ", "barrier", 680, 2)
+, new HeavySp("UAD-レモラ", "uad", 600,1)
+, new HeavySp("UAD-ケリブ", "uad", 620, 2)
+, new HeavySp("UAD-ガレオス", "uad", 670, 4)];
 })(asmsim.data);

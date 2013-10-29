@@ -1,9 +1,15 @@
 ﻿asmsim.data = asmsim.data || {};
 (function (data) {
-    data.assaultsp = [{ "name": "アサルトチャージャー", "weight": 260 }
-, { "name": "AC-マルチウェイ", "weight": 230 }
-, { "name": "AC-ディスタンス", "weight": 300 }
-, { "name": "AC-マルチウェイII", "weight": 280 }
-, { "name": "AC-マルチウェイX", "weight": 270 }];
+    function AssaultSp(name, bland, weight, rank) {
+        this.name = name;
+        this.bland = bland;
+        this.weight = weight;
+        this.rank = rank;
+    }
+    data.assaultsp = [new AssaultSp("アサルトチャージャー", "ac", 260,1)
+, new AssaultSp("AC-マルチウェイ", "ac", 230, 2)
+, new AssaultSp("AC-ディスタンス", "ac", 300, 3)
+, new AssaultSp("AC-マルチウェイII", "ac", 280, 4)
+, new AssaultSp("AC-マルチウェイX", "ac", 270, 5)];
 
 })(asmsim.data);
