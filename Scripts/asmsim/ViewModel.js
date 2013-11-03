@@ -31,7 +31,8 @@ var asmsim = asmsim || {};
     }
 
     asmsim.viewModel = function ViewModel(datacontext) {
-        var self = this;
+        var self = this,
+            serializer = asmsim.serializer;
 
         this.partsRank = partsTable;
         this.headProps = [
@@ -95,6 +96,8 @@ var asmsim = asmsim || {};
         this.advanceChipList = ko.observableArray(datacontext.advanceChip().map(function (a) { a.selected = ko.observable(false); return a; }));
         this.enhanceChipList = ko.observableArray(datacontext.enhanceChip().map(function (a) { a.selected = ko.observable(false); return a; }));
         this.actionChipList = ko.observableArray(datacontext.actionChip().map(function (a) { a.selected = ko.observable(false); return a; }));
+
+        this.saveUrl = ko.observable();
 
         //user's selected
         this.selectedHead = ko.observable(self.headList()[0]);
@@ -222,9 +225,6 @@ var asmsim = asmsim || {};
                 + self.exParams();
         });
 
-        //this.addFilter = function(data,event,currentFilter) {
-        //    currentFilters().push(new Filter(self.filters[0].routine));
-        //}
 
         this.filterdArm = ko.computed(function () {
             return filtering(self.armList(), self.armFilters(), self.filterArmWeight())
@@ -249,6 +249,13 @@ var asmsim = asmsim || {};
             return s;
         }
 
+        //ハッシュを現在のアセンブルへのアクセス用へ変更したりする
+        this.replaceUrl = function () {
+            location.hash = serializer.toUrl(self);
+            self.saveUrl(location.href);
+        }
+
+        //シリアライズ用オブジェクトを利用して
         this.apply = function (converted) {
             var foo = [
                 { prop: "h", source: "headList", target: "selectedHead" },
@@ -271,7 +278,13 @@ var asmsim = asmsim || {};
                 { prop: "ns", source: "sniperSubWeapons", target: "selectedSniperSub" },
                 { prop: "na", source: "sniperAssistWeapons", target: "selectedSniperAssist" },
                 { prop: "nx", source: "sniperSpWeapons", target: "selectedSniperSp" }
-            ];
+            ]
+            , chip = [
+                { prop: "ca", target: "actionChipList" },
+                { prop: "cm", target: "advanceChipList" },
+                { prop: "ce", target: "enhanceChipList"}
+            ]
+            ;self.actionChipList
 
             foo.forEach(function myfunction(a) {
                 if (converted[a.prop] != null) {
@@ -284,6 +297,17 @@ var asmsim = asmsim || {};
                     });
                 }
             });
+
+            chip.forEach(function (a) {
+                if (converted[a.prop] != null && converted[a.prop].length > 0) {
+                    self[a.target]().forEach(function (b) {
+                        b.selected(converted[a.prop].some(function (c) {
+                            return b.bland === c.bland && b.rank == c.rank
+                        }));
+                    });
+                }   
+            });
+
         }
 
     }

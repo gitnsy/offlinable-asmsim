@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-<!--<html>-->
 <html manifest="asmsim.appcache">
 <head>
     <meta charset="UTF-8">
@@ -328,7 +327,7 @@
             </div>
         </article>
     </div>
-
+    
     <div class="ac-container">
         <input id="ac-4" type="checkbox" />
         <label for="ac-4">要請兵器</label>
@@ -336,6 +335,20 @@
             <select data-bind="options: boltonArmList, value: selectedBoltOnArm, optionsText: 'name'"></select>重量:<span data-bind="    text: selectedBoltOnArm().weight"></span>
             <input id="onBOA" type="checkbox" data-bind="checked: addBoltonArmWeight" />
             <label for="onBOA">要請兵器の重量を有効にする</label>
+        </article>
+    </div>
+    
+    <div class="ac-container">
+        <input id="ac-5" type="checkbox" />
+        <label for="ac-5">その他</label>
+        <article>
+            <button data-bind="click: replaceUrl" >現在のアセンをURLに</button>
+            <input type="text" data-bind="value:saveUrl" />
+
+            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja" data-count="none">このアセンブルをツイート</a>
+<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+
+
         </article>
     </div>
 
@@ -421,9 +434,8 @@
             onhashchange = function () {
                 change(vm);
             }
-            var s = location.hash.substr(1);
-            if (s) {
-                vm.apply(asmsim.serializer.fromURL(s));
+            if (location.hash.substr(1)) {
+                vm.apply(asmsim.serializer.fromURL(location.hash.substr(1)));
             }
             ko.applyBindings(vm);
         </script>
