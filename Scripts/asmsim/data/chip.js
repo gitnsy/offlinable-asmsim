@@ -109,7 +109,7 @@
 , new Chip("対近接防御II", 2, "antimelee", 2)
 , new Chip("対近接防御III", 3, "antimelee", 3)];
 
-    data.actionChip = [new Chip("しゃがみ", 2, "act", "squat"),
+    data.actionChip = [new Chip("しゃがみ", 1, "act", "squat"),
     new Chip("しゃがみII", 2, "act", "squat2"),
     new Chip("クイックターン", 1, "act", "qt1"),
     new Chip("タックル", 1, "act", "tac"),
