@@ -30,7 +30,8 @@ describe("シリアライザテスト", function () {
                 { selected: function () { return false; }, bland: "bad", rank: -1 },
                 { selected: function () { return true; }, bland: "ec", rank: 21 },
                 { selected: function () { return true; }, bland: "ec", rank: 22 },
-                { selected: function () { return false; }, bland: "bad", rank: -2 }
+                { selected: function () { return false; }, bland: "bad", rank: -2 },
+                { selected: function () { return true; }, bland: "ec", rank: 27 }
             ];
         },
         actionChipList: function () {
@@ -38,7 +39,9 @@ describe("シリアライザテスト", function () {
                 { selected: function () { return false; }, bland: "bad", rank: -1 },
                 { selected: function () { return true; }, bland: "ac", rank: 23 },
                 { selected: function () { return true; }, bland: "ac", rank: 24 },
-                { selected: function () { return false; }, bland: "bad", rank: -2 }
+                { selected: function () { return false; }, bland: "bad", rank: -2 },
+                { selected: function () { return true; }, bland: "ac", rank: 28 }
+
             ];
         },
         advanceChipList: function () {
@@ -46,7 +49,8 @@ describe("シリアライザテスト", function () {
                 { selected: function () { return false; }, bland: "bad", rank: -1 },
                 { selected: function () { return true; }, bland: "ad", rank: 25 },
                 { selected: function () { return true; }, bland: "ad", rank: 26 },
-                { selected: function () { return false; }, bland: "bad", rank: -2 }
+                { selected: function () { return false; }, bland: "bad", rank: -2 },
+                { selected: function () { return true; }, bland: "ad", rank: 29 }
             ];
         }
     };
@@ -59,8 +63,9 @@ describe("シリアライザテスト", function () {
             + "hm:HeMain_9,hs:HeSub_10,ha:HeAssist_11,hx:HeSp_12,"
             + "sm:SuMain_13,ss:SuSub_14,sa:SuAssist_15,sx:SuSp_16,"
             + "nm:SnMain_17,ns:SnSub_18,na:SnAssist_19,nx:SnSp_20,"
-            + "ce:ec_21.ec_22,ca:ac_23.ac_24,cm:ad_25.ad_26");
+            + "ce:ec_21.ec_22.ec_27,ca:ac_23.ac_24.ac_28,cm:ad_25.ad_26.ad_29");
     });
+
     it("URL用の情報にViewModelに変換", function () {
         vm.apply({ a: { bland: "Cooger", rank: 2 } });
     });

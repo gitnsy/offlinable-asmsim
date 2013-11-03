@@ -2,6 +2,8 @@
 var asmsim = asmsim || {};
 (function (asmsim) {
     asmsim.serializer = {
+
+        //URL文字列をシリアライズ用オブジェクトに変換
         //vm:変換するViewModel
         toUrl: function (vm) {
             var getChip = function (a) {
@@ -31,22 +33,38 @@ var asmsim = asmsim || {};
                     + "ns:" + vm.selectedSniperSub().bland + "_" + vm.selectedSniperSub().rank + ","
                     + "na:" + vm.selectedSniperAssist().bland + "_" + vm.selectedSniperAssist().rank + ","
                     + "nx:" + vm.selectedSniperSp().bland + "_" + vm.selectedSniperSp().rank + ","
-                    + "ce:" + vm.enhanceChipList().filter(getChip).map(mapChip).toString().replace(",", ".") + ","
-                    + "ca:" + vm.actionChipList().filter(getChip).map(mapChip).toString().replace(",", ".") + ","
-                    + "cm:" + vm.advanceChipList().filter(getChip).map(mapChip).toString().replace(",", ".");
-            //1.2.32"+ "ca:5.6.7"+ "cm:9.8.5"
+                    + "ce:" + vm.enhanceChipList().filter(getChip).map(mapChip).toString().replace(/,/g, ".") + ","
+                    + "ca:" + vm.actionChipList().filter(getChip).map(mapChip).toString().replace(/,/g, ".") + ","
+                    + "cm:" + vm.advanceChipList().filter(getChip).map(mapChip).toString().replace(/,/g, ".");
         },
 
-        //URL用文字列からシリアライズソースオブジェクトにデシリアライズ
-        //これで生成したオブジェクトをVMにぶつけてデシリアライズだが、無駄に冗長かもしれない。
+        //URL文字列をシリアライズ用オブジェクトに変換
         //e.g. url = "a:foo_1,b:bar_s,c:foobar_q"
         fromURL: function (url) {
-            var s = {};
+            var s = {},chipprops=["ce","ca","cm"];
             url.split(",").forEach(function (a) {
                 var sepPos = a.indexOf(":"), underPos = a.indexOf("_");
                 s[a.substring(0, sepPos)] = {};
-                s[a.substring(0, sepPos)].bland = a.substring(sepPos + 1, underPos);
-                s[a.substring(0, sepPos)].rank = a.substr(underPos + 1);
+                s[a.substring(0, sepPos)].bland = underPos < 0 ? "" : a.substring(sepPos + 1, underPos);
+                s[a.substring(0, sepPos)].rank =  underPos < 0 ? "" : a.substr(underPos + 1);
+            });
+
+            chipprops.forEach(function (a) {
+                if (s[a] != null) {
+                    var result = [];
+
+                    (s[a].bland + "_" + s[a].rank).split(".").forEach(function (o) {
+                        var underPos = o.indexOf("_");
+
+                        result.push({
+                            bland: o.substring(0, underPos),
+                            rank: o.substr(underPos + 1)
+                        });
+
+                    });
+
+                    s[a] = result;
+                };
             });
 
             return s;
