@@ -18,17 +18,30 @@ var asmsim = asmsim || {};
 
         this.sourceProvider = function (a, s) { return a[s] };
         this.sourceProp = ko.observable();
-        this.targetProvider = ko.observable();
         this.target = ko.observable();
         this.comparator = ko.observable(comparator);
 
         this.result = ko.computed(function () {
             return function (s) {
                 return self.comparator()(self.sourceProvider(s, self.sourceProp())
-                    , self.target())
+                    , self.target());
             };
         });
     }
+
+    function SortFilter(comparator) {
+        var self = this;
+
+        self.targetProp = ko.observable("armor");
+        self.comparator = ko.observable(comparator);
+
+        this.result = ko.computed(function () {
+            return function (a, b) {
+                return self.comparator()(a[self.targetProp()], b[self.targetProp()]);
+            };
+        });
+    }
+
 
     asmsim.viewModel = function ViewModel(datacontext) {
         var self = this,
@@ -64,6 +77,11 @@ var asmsim = asmsim || {};
             { name: "等しい", routine: function (s, o) { return partsTable.indexOf(s) === partsTable.indexOf(o) } },
             { name: "以上", routine: function (s, o) { return partsTable.indexOf(s) <= partsTable.indexOf(o) } },
             { name: "以下", routine: function (s, o) { return partsTable.indexOf(s) >= partsTable.indexOf(o) } }
+        ];
+
+        this.sortFilters = [{ name: "(none)", routine: function (s, o) { return 0 } },
+            { name: "昇順", routine: function (s, o) { return partsTable.indexOf(s) > partsTable.indexOf(o) ? 1 : -1; } },
+            { name: "降順", routine: function (s, o) { return partsTable.indexOf(o) > partsTable.indexOf(s) ? 1 : -1; } }
         ];
 
         this.headList = ko.observableArray(datacontext.getHeadList());
@@ -137,6 +155,11 @@ var asmsim = asmsim || {};
         this.bodyFilters = ko.observableArray([new Filter(self.filters[0].routine)]);
         this.armFilters = ko.observableArray([new Filter(self.filters[0].routine)]);
         this.legFilters = ko.observableArray([new Filter(self.filters[0].routine)]);
+
+        this.headSortFilters = ko.observableArray([new SortFilter(self.sortFilters[0].routine)]);
+        this.bodySortFilters = ko.observableArray([new SortFilter(self.sortFilters[0].routine)]);
+        this.armSortFilters = ko.observableArray([new SortFilter(self.sortFilters[0].routine)]);
+        this.legSortFilters = ko.observableArray([new SortFilter(self.sortFilters[0].routine)]);
 
         this.exParams = ko.observable(0);
 
@@ -227,31 +250,38 @@ var asmsim = asmsim || {};
 
 
         this.filterdArm = ko.computed(function () {
-            return filtering(self.armList(), self.armFilters(), self.filterArmWeight())
+            return filtering(self.armList(), self.armFilters(), self.filterArmWeight(), self.armSortFilters())
         });
         this.filterdHead = ko.computed(function () {
-            return filtering(self.headList(), self.headFilters(), self.filterHeadWeight())
+            return filtering(self.headList(), self.headFilters(), self.filterHeadWeight(), self.headSortFilters())
         });
         this.filterdBody = ko.computed(function () {
-            return filtering(self.bodyList(), self.bodyFilters(), self.filterBodyWeight())
+            return filtering(self.bodyList(), self.bodyFilters(), self.filterBodyWeight(), self.bodySortFilters())
         });
         this.filterdLeg = ko.computed(function () {
-            return filtering(self.legList(), self.legFilters(), self.filterLegWeight())
+            return filtering(self.legList(), self.legFilters(), self.filterLegWeight(), self.legSortFilters())
         });
 
-        function filtering(s, filter, weight) {
-            s = weight == null || weight == false || isNaN(+weight)
-                ? s
+        function filtering(s, filter, weight, sortfilter) {
+            var result = weight == null || weight == false || isNaN(+weight)
+                ? s.slice(0)
                 : s.filter(function (a) { return +weight >= a.weight; });
+
             for (var i = 0; i < filter.length; i++) {
-                s = s.filter(filter[i].result());
+                result = result.filter(filter[i].result());
             }
-            return s;
+
+            //ソートは先に適用したものが優先となるよう、逆から使う。
+            for (var i = sortfilter.length - 1; i >= 0; i--) {
+                result = result.sort(sortfilter[i].result());
+            }
+
+            return result;
         }
 
         //フィルタの追加
         //target:削除操作対象のフィルタリスト index:削除するフィルターの位置
-        this.removeFilter = function (target,index) {
+        this.removeFilter = function (target, index) {
             target.splice(index, 1);
         }
 
@@ -259,6 +289,12 @@ var asmsim = asmsim || {};
         //target:追加対象のフィルターコレクション
         this.addFilter = function (target) {
             target.push(new Filter(self.filters[0].routine));
+        }
+
+        //パーツフィルタリストに対し新規フィルタの追加
+        //target:追加対象のフィルターコレクション
+        this.addSortFilter = function (target) {
+            target.push(new SortFilter(self.sortFilters[0].routine));
         }
 
         //ハッシュを現在のアセンブルへのアクセス用へ変更したりする
@@ -294,9 +330,9 @@ var asmsim = asmsim || {};
             , chip = [
                 { prop: "ca", target: "actionChipList" },
                 { prop: "cm", target: "advanceChipList" },
-                { prop: "ce", target: "enhanceChipList"}
+                { prop: "ce", target: "enhanceChipList" }
             ]
-            ;self.actionChipList
+            ; self.actionChipList
 
             foo.forEach(function myfunction(a) {
                 if (converted[a.prop] != null) {
@@ -317,7 +353,7 @@ var asmsim = asmsim || {};
                             return b.bland === c.bland && b.rank == c.rank
                         }));
                     });
-                }   
+                }
             });
 
         }

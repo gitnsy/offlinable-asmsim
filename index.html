@@ -16,18 +16,6 @@
 
         ga('create', 'UA-44868550-1', 'gitnsy.github.io');
         ga('send', 'pageview');
-
-        window.twttr = (function (d, s, id) {
-
-            var t, js, fjs = d.getElementsByTagName(s)[0];
-
-            if (d.getElementById(id)) return; js = d.createElement(s); js.id = id;
-
-            js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-
-            return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
-
-        }(document, "script", "twitter-wjs"));
     </script>
 </head>
 <body>
@@ -284,6 +272,7 @@
                     <label for="legListTable">パーツ一覧</label>
                     <article>
                         <div data-bind="template: { name: 'Filter', data: { weight: filterLegWeight, props: legProps, currentFilters: legFilters } }"></div>
+                        <div data-bind="template: { name: 'SortFilter', data: {props: legProps, currentFilters: legSortFilters } }"></div>
                         <table>
                             <thead>
                                 <tr>
@@ -358,7 +347,7 @@
             <input type="text" data-bind="value: saveUrl" />
         </article>
     </div>
-    
+
     <footer>
         <p>sourcecode on <a href="https://github.com/gitnsy/offlinable-asmsim">GitHub</a></p>
         <p>issues(known bugs and feature plan):<a href="https://github.com/gitnsy/offlinable-asmsim/issues?state=open">GitHub offlinable-asmsim issues</a></p>
@@ -429,6 +418,17 @@
                 <input type="button" value="削除" data-bind="click: function () { $root.removeFilter($parent.currentFilters, $index()) }" />
             </span>
         </script>
+                
+        <!-- property:props,filters -->
+        <script type="text/html" id="SortFilter">
+            <input type="button" value="ソート追加" data-bind="click: function () { $root.addSortFilter(currentFilters) }" />
+            <span data-bind="foreach: currentFilters">
+                <select data-bind="options: $parents[0].props, optionsText: 'name', value: targetProp, optionsValue: 'prop'"></select>
+                <select data-bind="options: $root.sortFilters, optionsText: 'name', value: comparator, optionsValue: 'routine' "></select>
+                <input type="button" value="削除" data-bind="click: function () { $root.removeFilter($parent.currentFilters, $index()) }" />
+            </span>
+        </script>
+
         <script>
             var change = function () {
                 var s = location.hash.substr(1);
