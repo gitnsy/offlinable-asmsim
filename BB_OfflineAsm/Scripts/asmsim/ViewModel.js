@@ -249,13 +249,25 @@ var asmsim = asmsim || {};
             return s;
         }
 
+        //フィルタの追加
+        //target:削除操作対象のフィルタリスト index:削除するフィルターの位置
+        this.removeFilter = function (target,index) {
+            target.splice(index, 1);
+        }
+
+        //パーツフィルタリストに対し新規フィルタの追加
+        //target:追加対象のフィルターコレクション
+        this.addFilter = function (target) {
+            target.push(new Filter(self.filters[0].routine));
+        }
+
         //ハッシュを現在のアセンブルへのアクセス用へ変更したりする
         this.replaceUrl = function () {
             location.hash = serializer.toUrl(self);
             self.saveUrl(location.href);
         }
 
-        //シリアライズ用オブジェクトを利用して
+        //シリアライズ用オブジェクトを利用してViewModelの値を変更
         this.apply = function (converted) {
             var foo = [
                 { prop: "h", source: "headList", target: "selectedHead" },

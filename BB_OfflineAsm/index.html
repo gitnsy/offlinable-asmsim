@@ -17,6 +17,18 @@
 
         ga('create', 'UA-44868550-1', 'gitnsy.github.io');
         ga('send', 'pageview');
+
+        window.twttr = (function (d, s, id) {
+
+            var t, js, fjs = d.getElementsByTagName(s)[0];
+
+            if (d.getElementById(id)) return; js = d.createElement(s); js.id = id;
+
+            js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+
+            return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
+
+        }(document, "script", "twitter-wjs"));
     </script>
 </head>
 <body>
@@ -310,25 +322,25 @@
         <article>
             特殊機能
             <div class="chip" data-bind="foreach: advanceChipList">
+                <input type="checkbox" data-bind="checked: selected" />
                 <span data-bind="text: name"></span>
                 <span data-bind="text: cost"></span>
-                <input type="checkbox" data-bind="checked: selected" />
             </div>
             機体強化
             <div class="chip" data-bind="foreach: enhanceChipList">
+                <input type="checkbox" data-bind="checked: selected" />
                 <span data-bind="text: name"></span>
                 <span data-bind="text: cost"></span>
-                <input type="checkbox" data-bind="checked: selected" />
             </div>
             アクション
             <div class="chip" data-bind="foreach: actionChipList">
+                <input type="checkbox" data-bind="checked: selected" />
                 <span data-bind="text: name"></span>
                 <span data-bind="text: cost"></span>
-                <input type="checkbox" data-bind="checked: selected" />
             </div>
         </article>
     </div>
-    
+
     <div class="ac-container">
         <input id="ac-4" type="checkbox" />
         <label for="ac-4">要請兵器</label>
@@ -338,21 +350,16 @@
             <label for="onBOA">要請兵器の重量を有効にする</label>
         </article>
     </div>
-    
+
     <div class="ac-container">
         <input id="ac-5" type="checkbox" />
         <label for="ac-5">その他</label>
         <article>
-            <button data-bind="click: replaceUrl" >現在のアセンをURLに</button>
-            <input type="text" data-bind="value:saveUrl" />
-
-            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja" data-count="none">このアセンブルをツイート</a>
-<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
-
-
+            <button data-bind="click: replaceUrl">現在のアセンをURLに</button>
+            <input type="text" data-bind="value: saveUrl" />
         </article>
     </div>
-
+    
     <footer>
         <p>sourcecode on <a href="https://github.com/gitnsy/offlinable-asmsim">GitHub</a></p>
         <p>issues(known bugs and feature plan):<a href="https://github.com/gitnsy/offlinable-asmsim/issues?state=open">GitHub offlinable-asmsim issues</a></p>
@@ -415,15 +422,14 @@
         <!-- property:weight,props,filters -->
         <script type="text/html" id="Filter">
             重量上限:<input type="number" data-bind="value: weight" />
-            <!--<input type="button" value="フィルタ追加" data-bind="click: function (currentFilters) { $root.addFilter(data,event) }" />-->
+            <input type="button" value="フィルタ追加" data-bind="click: function () { $root.addFilter(currentFilters) }" />
             <span data-bind="foreach: currentFilters">
                 <select data-bind="options: $parents[0].props, value: sourceProp, optionsText: 'name', optionsValue: 'prop'"></select>
                 <select data-bind="options: $root.partsRank, value: target"></select>
                 <select data-bind="options: $root.filters, optionsText: 'name', value: comparator, optionsValue: 'routine' "></select>
-                <!--<input type="button" value="削除" disabled="disabled" />-->
+                <input type="button" value="削除" data-bind="click: function () { $root.removeFilter($parent.currentFilters, $index()) }" />
             </span>
         </script>
-
         <script>
             var change = function () {
                 var s = location.hash.substr(1);
