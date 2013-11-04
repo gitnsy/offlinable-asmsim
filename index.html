@@ -123,7 +123,7 @@
                     <label for="headListTable">パーツ一覧</label>
                     <article>
                         <div data-bind="template: { name: 'Filter', data: { weight: filterHeadWeight, props: headProps, currentFilters: headFilters } }"></div>
-
+                        <div data-bind="template: { name: 'SortFilter', data: { props: headProps, currentFilters: headSortFilters } }"></div>
                         <table>
                             <thead>
                                 <tr>
@@ -173,7 +173,7 @@
                     <label for="bodyListTable">パーツ一覧</label>
                     <article>
                         <div data-bind="template: { name: 'Filter', data: { weight: filterBodyWeight, props: bodyProps, currentFilters: bodyFilters } }"></div>
-
+                        <div data-bind="template: { name: 'SortFilter', data: { props: bodyProps, currentFilters: bodySortFilters } }"></div>
                         <table>
                             <thead>
                                 <tr>
@@ -223,6 +223,7 @@
                     <label for="armListTable">パーツ一覧</label>
                     <article>
                         <div data-bind="template: { name: 'Filter', data: { weight: filterArmWeight, props: armProps, currentFilters: armFilters } }"></div>
+                        <div data-bind="template: { name: 'SortFilter', data: { props: armProps, currentFilters: armSortFilters } }"></div>
                         <table>
                             <thead>
                                 <tr>
