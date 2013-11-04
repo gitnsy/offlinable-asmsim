@@ -17,18 +17,6 @@
 
         ga('create', 'UA-44868550-1', 'gitnsy.github.io');
         ga('send', 'pageview');
-
-        window.twttr = (function (d, s, id) {
-
-            var t, js, fjs = d.getElementsByTagName(s)[0];
-
-            if (d.getElementById(id)) return; js = d.createElement(s); js.id = id;
-
-            js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-
-            return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
-
-        }(document, "script", "twitter-wjs"));
     </script>
 </head>
 <body>
@@ -136,7 +124,7 @@
                     <label for="headListTable">パーツ一覧</label>
                     <article>
                         <div data-bind="template: { name: 'Filter', data: { weight: filterHeadWeight, props: headProps, currentFilters: headFilters } }"></div>
-
+                        <div data-bind="template: { name: 'SortFilter', data: { props: headProps, currentFilters: headSortFilters } }"></div>
                         <table>
                             <thead>
                                 <tr>
@@ -186,7 +174,7 @@
                     <label for="bodyListTable">パーツ一覧</label>
                     <article>
                         <div data-bind="template: { name: 'Filter', data: { weight: filterBodyWeight, props: bodyProps, currentFilters: bodyFilters } }"></div>
-
+                        <div data-bind="template: { name: 'SortFilter', data: { props: bodyProps, currentFilters: bodySortFilters } }"></div>
                         <table>
                             <thead>
                                 <tr>
@@ -236,6 +224,7 @@
                     <label for="armListTable">パーツ一覧</label>
                     <article>
                         <div data-bind="template: { name: 'Filter', data: { weight: filterArmWeight, props: armProps, currentFilters: armFilters } }"></div>
+                        <div data-bind="template: { name: 'SortFilter', data: { props: armProps, currentFilters: armSortFilters } }"></div>
                         <table>
                             <thead>
                                 <tr>
