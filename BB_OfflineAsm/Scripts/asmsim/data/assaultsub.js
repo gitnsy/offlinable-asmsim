@@ -21,6 +21,7 @@
 , new AssaultSub("チェインボムV", "chainb", 170, 3)
 , new AssaultSub("フレアグレネード", "fgre", 170,1)
 , new AssaultSub("フレアグレネードS", "fgre", 160, 2)
+, new AssaultSub("フレアグレネードV", "fgre", 200, 3)
 , new AssaultSub("グレネードランチャー", "grun", 220,3)
 , new AssaultSub("多装Gランチャー", "grun", 250, 1)
 , new AssaultSub("強化型Gランチャー", "grun", 330, 2)
