@@ -55,6 +55,7 @@
     , new Leg("ロージーＲ", "A+", "D+", "E", "A", "HOVER", "Rosie", 1, 1270, 2.3)
     , new Leg("ロージーＲ＋", "A+", "D", "E", "A+", "HOVER", "Rosie", 2, 1260, 2.2)
     , new Leg("ロージーLM", "A+", "D", "D", "A", "HOVER", "Rosie", 3, 1230, 2.3)
+    , new Leg("ロージーEVE", "S", "D-", "E+", "A+", "HOVER", "Rosie", 4, 1350, 2.0)
     , new Leg("ランドバルクⅠ型", "B", "C-", "D", "A", "2LEG", "LANDBULK", 1, 1140, 1.6)
     , new Leg("ランドバルクⅡ型", "B", "D", "D", "A+", "2LEG", "LANDBULK", 2, 1220, 1.5)
     , new Leg("ランドバルクⅣ型", "B", "E", "C", "A", "2LEG", "LANDBULK", 3, 1270, 1.4)
