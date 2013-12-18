@@ -54,6 +54,7 @@ data.arms = [new Arm("クーガーⅠ型", "C+", "C-", "C-", "C-", "Cooger", 1, 
 , new Arm("ロージーR", "A+", "B-", "D+", "D-", "Rosie", 1, 1010, 2)
 , new Arm("ロージーR+", "A+", "A-", "D", "E", "Rosie", 2, 1030, 2.1)
 , new Arm("ロージーLM", "A", "C", "C+", "D", "Rosie", 3, 980, 1.8)
+, new Arm("ロージーEVE", "S", "B", "E+", "E+", "Rosie", 4, 1150, 2.1)
 , new Arm("ランドバルクⅠ型", "B", "C-", "B-", "D", "LANDBULK", 1, 930, 1.4)
 , new Arm("ランドバルクⅡ型", "B", "D-", "B-", "C", "LANDBULK", 2, 900, 1.3)
 , new Arm("ランドバルクⅣ型", "B", "B", "B-", "D-", "LANDBULK", 3, 950, 1.5)
