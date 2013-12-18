@@ -54,6 +54,7 @@
 ,new Head("ロージーR","A+","E","D+","C","Rosie",1,780,2.1)
 ,new Head("ロージーR＋","A+","E","E","A+","Rosie",2,880,2.1)
 ,new Head("ロージーLM","A+","D-","D","C+","Rosie",3,830,2.2)
+,new Head("ロージーEVE","S","E","D-","E+","Rosie",4,920,1.3)
 ,new Head("ランドバルクⅠ型","B","C-","B-","C","LANDBULK",1,720,2.3)
 ,new Head("ランドバルクⅡ型","B","C","D","B","LANDBULK",2,710,2.1)
 ,new Head("ランドバルクⅣ型","B","B-","C","D+","LANDBULK",3,750,2.3)
