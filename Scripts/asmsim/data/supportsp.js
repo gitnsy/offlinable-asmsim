@@ -13,6 +13,7 @@
 , new SupportSp("リペアショット", "shot", 490,1)
 , new SupportSp("リペアショットβ", "shot", 540, 2)
 , new SupportSp("リペアショットγ", "shot", 510, 3)
+, new SupportSp("リペアショットδ", "shot", 520, 4)
 , new SupportSp("リペアポスト", "post", 480, 1)
 , new SupportSp("リペアポストβ", "post", 520, 2)
 , new SupportSp("リペアポストγ", "post", 530, 3)
