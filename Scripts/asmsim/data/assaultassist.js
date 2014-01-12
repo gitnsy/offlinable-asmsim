@@ -28,6 +28,7 @@
 , new assistWeapon("SR-ヴァジュラ", "rod", 420, 1)
 , new assistWeapon("ダブルクロー", "crow", 240,1)
 , new assistWeapon("コンバットクロー", "crow", 310, 2)
+, new assistWeapon("CL-エビセレイター", "crow", 400, 3)
 , new assistWeapon("スラッシュグレイヴ", "glaive", 320,1)
 , new assistWeapon("ツイングレイヴ", "glaive", 470, 2)];
 
