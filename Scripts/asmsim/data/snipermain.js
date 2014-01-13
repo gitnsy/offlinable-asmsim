@@ -32,6 +32,7 @@
 , new SniperMain("炸薬狙撃銃・改", "burster", 330, 2)
 , new SniperMain("炸薬狙撃銃・連式", "burster", 390, 3)
 , new SniperMain("炸薬狙撃銃・絶火", "burster", 400, 4)
+, new SniperMain("炸薬狙撃銃・紅蓮", "burster", 430, 5)
 , new SniperMain("LZ-デイライト", "lz", 280, 1)
 , new SniperMain("LZ-デイライトS", "lz", 290, 2)
 , new SniperMain("LZ-トライアド", "lz", 310, 3)
