@@ -22,6 +22,7 @@
 , new HeavySp("ハイドラ重装砲", "hcannon", 840, 4)
 , new HeavySp("バリアユニット", "barrier", 710, 1)
 , new HeavySp("バリアユニットβ", "barrier", 680, 2)
+, new HeavySp("バリアユニットγ", "barrier", 780, 3)
 , new HeavySp("UAD-レモラ", "uad", 600,1)
 , new HeavySp("UAD-ケリブ", "uad", 620, 2)
 , new HeavySp("UAD-ガレオス", "uad", 670, 4)];
