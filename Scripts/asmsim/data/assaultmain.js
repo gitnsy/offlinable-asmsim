@@ -17,6 +17,7 @@
 , new AssaultMain("D90カスタム", "dual", 270, 2)
 , new AssaultMain("D92ジェイナス", "dual", 310, 3)
 , new AssaultMain("D99オルトロス", "dual", 320, 4)
+, new AssaultMain("D102アシュヴァイン", "dual", 360, 5)
 , new AssaultMain("ヴォルペ突撃銃", "volpe", 220,1)
 , new AssaultMain("ヴォルペ突撃銃C", "volpe", 210, 2)
 , new AssaultMain("ヴォルペ突撃銃FAM", "volpe", 230, 3)
