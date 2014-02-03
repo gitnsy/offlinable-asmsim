@@ -25,6 +25,7 @@
 , new SupportMain("CLS-ライオ", "cls", 250,1)
 , new SupportMain("CLS-ライオβ", "cls", 280, 2)
 , new SupportMain("CLS-ライオγ", "cls", 260, 3)
+, new SupportMain("CLS-イルミナル", "cls", 300, 4)
 , new SupportMain("ネイルガン", "nail", 140, 1)
 , new SupportMain("アッパーネイル", "nail", 160, 2)
 , new SupportMain("ネイルガンTF", "nail", 170, 3)
