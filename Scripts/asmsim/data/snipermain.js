@@ -6,9 +6,7 @@
         this.weight = weight;
         this.rank = rank;
     }
-//    data.snipermain = [{name:"",weight:1}];
-
-    data.snipermain = [new SniperMain("38式狙撃銃", "38", 230, 1)
+data.snipermain = [new SniperMain("38式狙撃銃", "38", 230, 1)
 , new SniperMain("38式狙撃銃・改", "38", 270, 2)
 , new SniperMain("38式狙撃銃・新式", "38", 240, 3)
 , new SniperMain("38式狙撃銃・遠雷", "38", 290, 4)
@@ -45,5 +43,6 @@
 , new SniperMain("ブレイザー・アグニ", "brazer", 380, 3)
 , new SniperMain("ブレイザー・バースト", "brazer", 390, 4)
 , new SniperMain("MLZ-シグニズ", "mlz", 360, 1)
-, new SniperMain("MLZ-シグニズII", "mlz", 380, 2)];
+, new SniperMain("MLZ-シグニズII", "mlz", 380, 2)
+, new SniperMain("MLZ-リオニーズ", "mlz", 430, 3)];
 })(asmsim.data);
