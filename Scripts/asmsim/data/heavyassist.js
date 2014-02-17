@@ -17,5 +17,6 @@
 , new HeavyAssist("ヘヴィパイク", "pike", 260, 2)
 , new HeavyAssist("ラベージパイク", "pike", 300, 3)
 , new HeavyAssist("バトルチェーンソー", "sow", 320,1)
-, new HeavyAssist("ブレイクチェーンソー", "sow", 360, 2)];
+, new HeavyAssist("ブレイクチェーンソー", "sow", 360, 2)
+, new HeavyAssist("ケイオスチェーンソー", "sow", 420, 3)];
 })(asmsim.data);
