@@ -79,5 +79,8 @@
 ,new Head("フォーミュラF型","D-","B+","B-","C+","Formula",3,550,2.5)
 ,new Head("アスラ","E","A+","D","C+","ASURA",1,470,2.3)
 ,new Head("アスラ・弐","E","A+","E","B+","ASURA",2,460,2.1)
-,new Head("アスラ・参","E","S","D-","C","ASURA",3,490,2.3)];
+,new Head("アスラ・参","E","S","D-","C","ASURA",3,490,2.3)
+,new Head("ジーシェン", "B", "C-", "B-", "C+", "JIXIEN", 1, 740, 2.4)
+,new Head("ジーシェン・フー", "B+", "D+", "B+", "C", "JIXIEN", 2, 760, 2.4)
+,new Head("ジーシェン・シー", "A-", "B", "B", "E+", "JIXIEN", 3, 770, 2.1)];
 })(asmsim.data);
