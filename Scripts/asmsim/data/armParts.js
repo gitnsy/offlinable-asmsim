@@ -79,6 +79,9 @@ data.arms = [new Arm("クーガーⅠ型", "C+", "C-", "C-", "C-", "Cooger", 1, 
 , new Arm("フォーミュラF型", "D-", "D-", "B", "B+", "Formula", 3, 710, 0.9)
 , new Arm("アスラ", "E", "E", "A-", "B-", "ASURA", 1, 640, 0.7)
 , new Arm("アスラ・弐", "E", "E-", "B-", "S", "ASURA", 2, 620, 0.5)
-, new Arm("アスラ・参", "E", "D-", "A", "C", "ASURA", 3, 670, 0.7)]
+, new Arm("アスラ・参", "E", "D-", "A", "C", "ASURA", 3, 670, 0.7)
+, new Arm("ジーシェン", "B+", "C", "D+", "D+", "JIXIEN", 1, 960, 1.8)
+, new Arm("ジーシェン・フー", "B", "C-", "B-", "C+", "JIXIEN", 2, 950, 1.3)
+, new Arm("ジーシェン・シー", "A-", "B+", "D", "C+", "JIXIEN", 3, 980, 1.9)]
 
 })(asmsim.data);
