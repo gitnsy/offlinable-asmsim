@@ -19,6 +19,7 @@
 , new SupportSp("リペアポストγ", "post", 530, 3)
 , new SupportSp("リペアフィールド", "field", 530,1)
 , new SupportSp("リペアフィールドβ", "field", 570, 2)
+, new SupportSp("リペアフィールドγ", "field", 600, 3)
 , new SupportSp("リペアセントリー", "sentry", 450, 1)
 , new SupportSp("リペアセントリーβ", "sentry", 490, 2)
 , new SupportSp("リペアセントリーγ", "sentry", 460, 3)];
