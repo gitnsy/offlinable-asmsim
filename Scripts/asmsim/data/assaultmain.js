@@ -8,11 +8,11 @@
     }
 
     data.assaultmain = [new AssaultMain("M90サブマシンガン", "smg", 140, 1)
-, new AssaultMain("M90Cサブマシンガン", "smg", 150, 2)
+, new AssaultMain("M90Cサブマシンガン", "smg", 130, 2)
 , new AssaultMain("M91サブマシンガン", "smg", 160, 3)
-, new AssaultMain("M99サーペント", "smg", 180, 4)
+, new AssaultMain("M99サーペント", "smg", 170, 4)
 , new AssaultMain("M92ヴァイパー", "smg", 190, 5)
-, new AssaultMain("サーペント/CV", "smg", 180, 4.1)
+, new AssaultMain("サーペント/CV", "smg", 170, 4.1)
 , new AssaultMain("D90デュアル", "dual", 290,1)
 , new AssaultMain("D90カスタム", "dual", 270, 2)
 , new AssaultMain("D92ジェイナス", "dual", 310, 3)
