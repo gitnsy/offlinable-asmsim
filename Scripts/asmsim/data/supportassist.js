@@ -26,6 +26,8 @@
 , new SupportAssist("スタナーJ2", "stunner", 350, 2)
 , new SupportAssist("スタナーK", "stunner", 370, 3)
 , new SupportAssist("弾薬BOX", "box", 300,1)
-, new SupportAssist("自律型弾薬BOX", "box", 320, 2)];
+, new SupportAssist("自律型弾薬BOX", "box", 320, 2)
+, new SupportAssist("ND索敵センサー", "ndsensor", 340,1)
+, new SupportAssist("小型ND索敵センサー", "ndsensor", 310, 2)];
 
 })(asmsim.data);
