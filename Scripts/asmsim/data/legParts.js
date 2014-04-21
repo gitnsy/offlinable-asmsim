@@ -62,6 +62,9 @@
     , new Leg("ヤーデ54", "A-", "B-", "D-", "B+", "2LEG", "JADE", 1, 1180, 2.3)
     , new Leg("ヤーデ54S", "A", "D+", "D-", "A", "2LEG", "JADE", 2, 1270, 2)
     , new Leg("ヤーデ55", "A+", "C", "D+", "B+", "2LEG", "JADE", 3, 1220, 1.8)
+    , new Leg("ジーシェン", "A-", "C-", "D-", "A-", "2LEG","JIXIEN", 1, 1180, 2.6)
+    , new Leg("ジーシェン・フー", "B", "C", "C-", "B+", "2LEG","JIXIEN", 2, 1100, 1.6)
+    , new Leg("ジーシェン・シー", "A-", "D", "D", "A", "2LEG","JIXIEN", 3, 1200, 2.1)
     , new Leg("シュライクⅠ型", "D-", "B", "B+", "E", "2LEG", "Shrike", 1, 750, 2)
     , new Leg("シュライクⅡ型", "E", "A+", "B+", "E", "2LEG", "Shrike", 2, 700, 2)
     , new Leg("シュライクⅤ型", "D-", "B-", "A+", "E", "2LEG", "Shrike", 3, 800, 1.4)
@@ -81,8 +84,9 @@
     , new Leg("アスラ", "E", "B", "A+", "E", "2LEG", "ASURA", 1, 750, 1)
     , new Leg("アスラ・弐", "E", "C+", "A+", "E+", "2LEG", "ASURA", 2, 780, 0.9)
     , new Leg("アスラ・参", "E", "C+", "S", "E", "2LEG", "ASURA", 3, 870, 0.7)
-    , new Leg("ジーシェン", "A-", "C-", "D-", "A-", "2LEG","JIXIEN", 1, 1180, 2.6)
-    , new Leg("ジーシェン・フー", "B", "C", "C-", "B+", "2LEG","JIXIEN", 2, 1100, 1.6)
-    , new Leg("ジーシェン・シー", "A-", "D", "D", "A", "2LEG","JIXIEN", 3, 1200, 2.1)];
+,new Leg("月影","D-","C-","A","D-","2LEG","Getsuei",1,770,1.2)
+,new Leg("月影・新","E+","D","A+","E+","2LEG","Getsuei",2,760,0.8)
+,new Leg("月影・暁","D+","D+","A-","D","2LEG","Getsuei",3,820,1.6)
+    ];
 
 })(asmsim.data);
