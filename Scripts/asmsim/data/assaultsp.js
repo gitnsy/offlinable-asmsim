@@ -9,7 +9,7 @@
     data.assaultsp = [new AssaultSp("アサルトチャージャー", "ac", 260,1)
 , new AssaultSp("AC-マルチウェイ", "ac", 230, 2)
 , new AssaultSp("AC-ディスタンス", "ac", 300, 3)
-, new AssaultSp("AC-マルチウェイII", "ac", 280, 4)
+, new AssaultSp("AC-マルチウェイII", "ac", 290, 4)
 , new AssaultSp("AC-マルチウェイX", "ac", 270, 5)];
 
 })(asmsim.data);
