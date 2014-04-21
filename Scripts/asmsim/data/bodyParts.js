@@ -82,8 +82,7 @@
         , new Body("アスラ", "E", "C+", "D+", "A-", "ASURA", 1, 1020, 2.6)
         , new Body("アスラ・弐", "E", "D+", "B-", "A-", "ASURA", 2, 1040, 2.3)
         , new Body("アスラ・参", "E", "B+", "D", "A-", "ASURA", 3, 1080, 2.7)
-        ,new,Body("月影","D-","B-","D+","A-","Getsuei",1,1030,2.4)
-,new,Body("月影・新","E+","A-","D+","A-","Getsuei",2,1060,2.5)
-,new,Body("月影・暁","D+","C","C-","A+","Getsuei",3,1110,2.7)
-];
+        ,new Body("月影","D-","B-","D+","A-","Getsuei",1,1030,2.4)
+,new Body("月影・新","E+","A-","D+","A-","Getsuei",2,1060,2.5)
+,new Body("月影・暁","D+","C","C-","A+","Getsuei",3,1110,2.7)];
 })(asmsim.data);
