@@ -6,12 +6,12 @@
         this.weight = weight;
         this.rank = rank;
     }
-    data.snipersp = [new SniperSp("シールド発生装置", "shield", 290, 1)
-, new SniperSp("シールド発生装置・改", "shield", 350, 2)
-, new SniperSp("高出力シールド", "shield", 370, 3)
+    data.snipersp = [new SniperSp("シールド発生装置", "shield", 230, 1)
+, new SniperSp("シールド発生装置・改", "shield", 290, 2)
+, new SniperSp("高出力シールド", "shield", 330, 3)
 , new SniperSp("光学迷彩・試作型", "ocamouf", 260, 1)
 , new SniperSp("光学迷彩・実用型", "ocamouf", 300, 2)
-, new SniperSp("光学迷彩・耐久型", "ocamouf", 310,3)
+, new SniperSp("光学迷彩・耐久型", "ocamouf", 340,3)
 , new SniperSp("マグネタイザー", "magne", 320, 1)
 , new SniperSp("マグネタイザーβ", "magne", 360, 2)
 , new SniperSp("マグネタイザーγ", "magne", 380,3)
