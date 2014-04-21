@@ -18,7 +18,7 @@
 , new AssaultSub("バーストチャクラムV ", "chakram", 250, 3)
 , new AssaultSub("チェインボム", "chainb", 140,1)
 , new AssaultSub("チェインボムS", "chainb", 120, 2)
-, new AssaultSub("チェインボムV", "chainb", 170, 3)
+, new AssaultSub("チェインボムV", "chainb", 190, 3)
 , new AssaultSub("フレアグレネード", "fgre", 170,1)
 , new AssaultSub("フレアグレネードS", "fgre", 160, 2)
 , new AssaultSub("フレアグレネードV", "fgre", 200, 3)
