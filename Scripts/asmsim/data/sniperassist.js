@@ -16,5 +16,7 @@
 , new SniperAssist("高振動ブレード", "knife", 160,1)
 , new SniperAssist("新型高振動ブレード", "knife", 170, 2)
 , new SniperAssist("強化高振動ブレード", "knife", 250, 3)
-, new SniperAssist("シャルフエッジ", "knife", 220, 2.1)];
+, new SniperAssist("シャルフエッジ", "knife", 220, 2.1)
+, new SniperAssist("リモートシューター", "remshot", 550,1)
+, new SniperAssist("リモートシューターS", "remshot", 530, 2)];
 })(asmsim.data);
