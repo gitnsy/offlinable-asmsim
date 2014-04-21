@@ -20,11 +20,12 @@
 , Jinga: new SetBonus("ロックオンUP(+5m)")
 , Rosie: new SetBonus("装甲UP(各部位+3%)")
 , BUZ: new SetBonus("通常移動UP(+2.16km/h(+0.60m/s))")
-, LANDBULK: new SetBonus("重量耐性UP(100)", 100)
+, LANDBULK: new SetBonus("重量耐性UP(150)", 150)
 , Formula: new SetBonus("高速移動UP(+2.592km/h(+0.72m/s))")
 , Raika: new SetBonus("ブースターUP(3)")
 , JADE: new SetBonus("ダッシュUP(+2.16km/h(+0.60m/s))")
 , ASURA: new SetBonus("武器変更UP(5%)")
+, JIXIEN: new SetBonus("エリア移動(-1秒)")
 , Getsuei: new SetBonus("リロード(3%?)")
     };
 })(asmsim.data);
