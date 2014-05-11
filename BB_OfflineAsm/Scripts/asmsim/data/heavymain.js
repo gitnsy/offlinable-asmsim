@@ -33,6 +33,7 @@
 , new HeavyMain("ヴルカンLG2", "vurukan", 280, 2)
 , new HeavyMain("ヴルカンMC", "vurukan", 320, 3)
 , new HeavyMain("ヴルカン・ラヴァ", "vurukan", 310, 4)
+, new HeavyMain("ヴルカン・ジャラー", "vurukan", 290, 5)
 , new HeavyMain("LAC-グローム", "lac", 440,1)
 , new HeavyMain("LAC-グロームβ", "lac", 460, 2)
 , new HeavyMain("LAC-グロームγ", "lac", 540, 3)

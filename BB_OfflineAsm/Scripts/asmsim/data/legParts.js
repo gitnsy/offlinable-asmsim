@@ -40,6 +40,7 @@
     , new Leg("迅牙", "D+", "A-", "C+", "C-", "2LEG", "Jinga", 1, 980, 2.2)
     , new Leg("迅牙・甲", "D+", "D+", "B+", "C-", "2LEG", "Jinga", 2, 1020, 1.7)
     , new Leg("迅牙・真", "C+", "E+", "C+", "B-", "2LEG", "Jinga", 3, 1080, 2)
+    , new Leg("迅牙・飛天", "C+", "D-", "C+", "B", "2LEG", "Jinga", 4, 1100, 1.5)
     , new Leg("雷花", "C-", "C+", "B", "D+", "2LEG", "Raika", 1, 960, 1.8)
     , new Leg("雷花・燕", "D+", "D-", "A-", "D+", "2LEG", "Raika", 2, 940, 1)
     , new Leg("雷花・麗", "C", "C+", "B-", "C", "2LEG", "Raika", 3, 990, 1.8)
@@ -54,6 +55,7 @@
     , new Leg("ロージーＲ", "A+", "D+", "E", "A", "HOVER", "Rosie", 1, 1270, 2.3)
     , new Leg("ロージーＲ＋", "A+", "D", "E", "A+", "HOVER", "Rosie", 2, 1260, 2.2)
     , new Leg("ロージーLM", "A+", "D", "D", "A", "HOVER", "Rosie", 3, 1230, 2.3)
+    , new Leg("ロージーEVE", "S", "D-", "E+", "A+", "HOVER", "Rosie", 4, 1350, 2.0)
     , new Leg("ランドバルクⅠ型", "B", "C-", "D", "A", "2LEG", "LANDBULK", 1, 1140, 1.6)
     , new Leg("ランドバルクⅡ型", "B", "D", "D", "A+", "2LEG", "LANDBULK", 2, 1220, 1.5)
     , new Leg("ランドバルクⅣ型", "B", "E", "C", "A", "2LEG", "LANDBULK", 3, 1270, 1.4)
@@ -78,6 +80,9 @@
     , new Leg("フォーミュラF型", "D-", "C+", "A+", "D-", "HOVER", "Formula", 3, 900, 1.6)
     , new Leg("アスラ", "E", "B", "A+", "E", "2LEG", "ASURA", 1, 750, 1)
     , new Leg("アスラ・弐", "E", "C+", "A+", "E+", "2LEG", "ASURA", 2, 780, 0.9)
-    , new Leg("アスラ・参", "E", "C+", "S", "E", "2LEG", "ASURA", 3, 870, 0.7)];
+    , new Leg("アスラ・参", "E", "C+", "S", "E", "2LEG", "ASURA", 3, 870, 0.7)
+    , new Leg("ジーシェン", "A-", "C-", "D-", "A-", "2LEG","JIXIEN", 1, 1180, 2.6)
+    , new Leg("ジーシェン・フー", "B", "C", "C-", "B+", "2LEG","JIXIEN", 2, 1100, 1.6)
+    , new Leg("ジーシェン・シー", "A-", "D", "D", "A", "2LEG","JIXIEN", 3, 1200, 2.1)];
 
 })(asmsim.data);

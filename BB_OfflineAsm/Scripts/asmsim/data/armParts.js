@@ -39,6 +39,7 @@ data.arms = [new Arm("クーガーⅠ型", "C+", "C-", "C-", "C-", "Cooger", 1, 
 , new Arm("迅牙", "D+", "C-", "C-", "B+", "Jinga", 1, 760, 1.1)
 , new Arm("迅牙・甲", "C", "C", "B-", "C+", "Jinga", 2, 850, 1.1)
 , new Arm("迅牙・真", "C+", "A-", "B-", "D-", "Jinga", 3, 890, 1.5)
+, new Arm("迅牙・飛天", "B-", "B", "B-", "D", "Jinga", 4, 880, 1.3)
 , new Arm("雷花", "C", "C+", "C+", "C", "Raika", 1, 830, 1.4)
 , new Arm("雷花・燕", "D+", "D+", "B+", "C+", "Raika", 2, 780, 0.7)
 , new Arm("雷花・麗", "B-", "A-", "C+", "C-", "Raika", 3, 880, 0.9)
@@ -53,6 +54,7 @@ data.arms = [new Arm("クーガーⅠ型", "C+", "C-", "C-", "C-", "Cooger", 1, 
 , new Arm("ロージーR", "A+", "B-", "D+", "D-", "Rosie", 1, 1010, 2)
 , new Arm("ロージーR+", "A+", "A-", "D", "E", "Rosie", 2, 1030, 2.1)
 , new Arm("ロージーLM", "A", "C", "C+", "D", "Rosie", 3, 980, 1.8)
+, new Arm("ロージーEVE", "S", "B", "E+", "E+", "Rosie", 4, 1150, 2.1)
 , new Arm("ランドバルクⅠ型", "B", "C-", "B-", "D", "LANDBULK", 1, 930, 1.4)
 , new Arm("ランドバルクⅡ型", "B", "D-", "B-", "C", "LANDBULK", 2, 900, 1.3)
 , new Arm("ランドバルクⅣ型", "B", "B", "B-", "D-", "LANDBULK", 3, 950, 1.5)
@@ -77,6 +79,9 @@ data.arms = [new Arm("クーガーⅠ型", "C+", "C-", "C-", "C-", "Cooger", 1, 
 , new Arm("フォーミュラF型", "D-", "D-", "B", "B+", "Formula", 3, 710, 0.9)
 , new Arm("アスラ", "E", "E", "A-", "B-", "ASURA", 1, 640, 0.7)
 , new Arm("アスラ・弐", "E", "E-", "B-", "S", "ASURA", 2, 620, 0.5)
-, new Arm("アスラ・参", "E", "D-", "A", "C", "ASURA", 3, 670, 0.7)]
+, new Arm("アスラ・参", "E", "D-", "A", "C", "ASURA", 3, 670, 0.7)
+, new Arm("ジーシェン", "B+", "C", "D+", "D+", "JIXIEN", 1, 960, 1.8)
+, new Arm("ジーシェン・フー", "B", "C-", "B-", "C+", "JIXIEN", 2, 950, 1.3)
+, new Arm("ジーシェン・シー", "A-", "B+", "D", "C+", "JIXIEN", 3, 980, 1.9)]
 
 })(asmsim.data);

@@ -13,6 +13,7 @@
 , new assistWeapon("SW-ティアダウナー", "sword", 600,3)
 , new assistWeapon("スティールハーツ", "sword", 430,2.1)
 , new assistWeapon("Tダウナー/CV", "sword", 600, 3.1)
+, new assistWeapon("SW-エグゼクター", "sword", 760,4)
 , new assistWeapon("ロングスピア", "spear", 190,1)
 , new assistWeapon("ピアシングスピア", "spear", 340, 2)
 , new assistWeapon("SP-ペネトレーター", "spear", 480, 3)
@@ -28,6 +29,7 @@
 , new assistWeapon("SR-ヴァジュラ", "rod", 420, 1)
 , new assistWeapon("ダブルクロー", "crow", 240,1)
 , new assistWeapon("コンバットクロー", "crow", 310, 2)
+, new assistWeapon("CL-エビセレイター", "crow", 400, 3)
 , new assistWeapon("スラッシュグレイヴ", "glaive", 320,1)
 , new assistWeapon("ツイングレイヴ", "glaive", 470, 2)];
 

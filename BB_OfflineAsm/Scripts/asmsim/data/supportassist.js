@@ -21,6 +21,7 @@
 , new SupportAssist("広域滞空索敵弾", "airsensor", 420, 3)
 , new SupportAssist("レーダーユニット", "rader", 410,1)
 , new SupportAssist("レーダーユニットII", "rader", 420, 2)
+, new SupportAssist("レーダーユニットIII", "rader", 450, 3)
 , new SupportAssist("スタナーJ", "stunner", 320,1)
 , new SupportAssist("スタナーJ2", "stunner", 350, 2)
 , new SupportAssist("スタナーK", "stunner", 370, 3)

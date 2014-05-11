@@ -11,10 +11,12 @@
 , new HeavyAssist("新型ECMグレネード", "ecm", 120, 3)
 , new HeavyAssist("改良型ECMグレネード", "ecm", 170, 4)
 , new HeavyAssist("インパクトボム", "impact", 160,1)
-, new HeavyAssist("インパクトボムS", "impact", 140, 3)
+, new HeavyAssist("インパクトボムS", "impact", 140, 2)
+, new HeavyAssist("インパクトボムV", "impact", 180, 3)
 , new HeavyAssist("アームパイク", "pike", 230,1)
 , new HeavyAssist("ヘヴィパイク", "pike", 260, 2)
 , new HeavyAssist("ラベージパイク", "pike", 300, 3)
 , new HeavyAssist("バトルチェーンソー", "sow", 320,1)
-, new HeavyAssist("ブレイクチェーンソー", "sow", 360, 2)];
+, new HeavyAssist("ブレイクチェーンソー", "sow", 360, 2)
+, new HeavyAssist("ケイオスチェーンソー", "sow", 420, 3)];
 })(asmsim.data);

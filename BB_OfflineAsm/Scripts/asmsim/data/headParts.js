@@ -39,6 +39,7 @@
 ,new Head("迅牙","D+","B","D+","B","Jinga",1,600,2.4)
 ,new Head("迅牙・甲","C+","B-","E+","A-","Jinga",2,620,1.8)
 ,new Head("迅牙・真","D+","A-","A-","C","Jinga",3,670,2.5)
+,new Head("迅牙・飛天","C","C+","D+","A+","Jinga",4,640,2.3)
 ,new Head("雷花","D+","C+","B-","C","Raika",1,510,2.8)
 ,new Head("雷花・燕","C-","C","B","B-","Raika",2,530,2.7)
 ,new Head("雷花・麗","C-","B","D+","B-","Raika",3,570,2.4)
@@ -53,6 +54,7 @@
 ,new Head("ロージーR","A+","E","D+","C","Rosie",1,780,2.1)
 ,new Head("ロージーR＋","A+","E","E","A+","Rosie",2,880,2.1)
 ,new Head("ロージーLM","A+","D-","D","C+","Rosie",3,830,2.2)
+,new Head("ロージーEVE","S","E","D-","E+","Rosie",4,920,1.3)
 ,new Head("ランドバルクⅠ型","B","C-","B-","C","LANDBULK",1,720,2.3)
 ,new Head("ランドバルクⅡ型","B","C","D","B","LANDBULK",2,710,2.1)
 ,new Head("ランドバルクⅣ型","B","B-","C","D+","LANDBULK",3,750,2.3)
@@ -77,5 +79,8 @@
 ,new Head("フォーミュラF型","D-","B+","B-","C+","Formula",3,550,2.5)
 ,new Head("アスラ","E","A+","D","C+","ASURA",1,470,2.3)
 ,new Head("アスラ・弐","E","A+","E","B+","ASURA",2,460,2.1)
-,new Head("アスラ・参","E","S","D-","C","ASURA",3,490,2.3)];
+,new Head("アスラ・参","E","S","D-","C","ASURA",3,490,2.3)
+,new Head("ジーシェン", "B", "C-", "B-", "C+", "JIXIEN", 1, 740, 2.4)
+,new Head("ジーシェン・フー", "B+", "D+", "B+", "C", "JIXIEN", 2, 760, 2.4)
+,new Head("ジーシェン・シー", "A-", "B", "B", "E+", "JIXIEN", 3, 770, 2.1)];
 })(asmsim.data);
