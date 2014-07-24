@@ -19,6 +19,7 @@
 , new HeavyMain("GAXエレファント", "gax", 400, 2)
 , new HeavyMain("GAXウッドペッカー", "gax", 360, 3)
 , new HeavyMain("GAXダイナソア", "gax", 460, 4)
+, new HeavyMain("GAXファフニール", "gax", 520, 5)
 , new HeavyMain("エレファント/CV", "gax", 400, 2.1)
 , new HeavyMain("単式機関砲", "cannon", 390,1)
 , new HeavyMain("単式機関砲・改", "cannon", 420, 2)

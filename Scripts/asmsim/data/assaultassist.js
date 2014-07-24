@@ -31,6 +31,8 @@
 , new assistWeapon("コンバットクロー", "crow", 300, 2)
 , new assistWeapon("CL-エビセレイター", "crow", 400, 3)
 , new assistWeapon("スラッシュグレイヴ", "glaive", 320,1)
-, new assistWeapon("ツイングレイヴ", "glaive", 470, 2)];
+, new assistWeapon("ツイングレイヴ", "glaive", 470, 2)
+, new assistWeapon("SG-テンペスト", "glaive", 590, 3)
+];
 
 })(asmsim.data);

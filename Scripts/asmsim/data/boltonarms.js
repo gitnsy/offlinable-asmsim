@@ -5,9 +5,12 @@
         this.weight = weight;
     }
 
-    data.boltOnArms = [new BoltOnArms("バラム重機砲", 720),
-        new BoltOnArms("爆撃通信機", 600),
-        new BoltOnArms("オートガン", 660)
+    data.boltOnArms = [
+    　　　　new BoltOnArms("バラム重機砲", 720)
+        ,new BoltOnArms("爆撃通信機", 600)
+        ,new BoltOnArms("オートガン", 660)
+        ,new BoltOnArms("アハトミサイル", 880)
+        ,new BoltOnArms("リペアマシン", 680)
     ];
 
 })(asmsim.data);

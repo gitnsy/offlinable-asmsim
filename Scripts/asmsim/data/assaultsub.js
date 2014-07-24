@@ -13,6 +13,7 @@
 , new AssaultSub("39型クラッカー", "cracker", 100, 1)
 , new AssaultSub("40型クラッカー", "cracker", 110, 2)
 , new AssaultSub("42型クラッカー", "cracker", 160, 3)
+, new AssaultSub("60型クラッカー", "cracker", 130, 4)
 , new AssaultSub("バーストチャクラム", "chakram", 200, 1)
 , new AssaultSub("バーストチャクラムS ", "chakram", 180, 2)
 , new AssaultSub("バーストチャクラムV ", "chakram", 250, 3)

@@ -19,5 +19,7 @@
 , new SniperSp("照準補正装置・耐久型", "aimdev", 220, 2)
 , new SniperSp("照準補正装置・強化型", "aimdev", 270, 3)
 , new SniperSp("EUS-T1", "eus", 350,1)
-, new SniperSp("EUS-T2", "eus", 360, 2)];
+, new SniperSp("EUS-T2", "eus", 360, 2)
+, new SniperSp("EUS-TLZ", "eus", 400, 3)
+];
 })(asmsim.data);

@@ -9,6 +9,7 @@
     data.supportsp = [new SupportSp("リペアユニット", "unit", 560,1)
 , new SupportSp("リペアユニットβ", "unit", 600, 2)
 , new SupportSp("リペアユニットγ", "unit", 580, 3)
+, new SupportSp("リペアユニットδ", "unit", 640, 4)
 , new SupportSp("Rユニットβ/CV", "unit", 600, 2.1)
 , new SupportSp("リペアショット", "shot", 490,1)
 , new SupportSp("リペアショットβ", "shot", 540, 2)

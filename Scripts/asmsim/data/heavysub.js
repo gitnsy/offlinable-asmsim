@@ -33,5 +33,7 @@
 , new HeavySub("マルチシーカー", "seeker", 490, 4)
 , new HeavySub("スプレッドランチャー", "spl", 530,1)
 , new HeavySub("SPL-サージ", "spl", 560, 2)
-, new HeavySub("SPL-プロミネンス", "spl", 570, 3)];
+, new HeavySub("SPL-プロミネンス", "spl", 570, 3)
+, new HeavySub("SPL-スピキュール", "spl", 590, 4)
+];
 })(asmsim.data);

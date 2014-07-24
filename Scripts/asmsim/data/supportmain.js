@@ -36,6 +36,7 @@
 , new SupportMain("ハガード・カスタム", "haggard", 190, 2)
 , new SupportMain("ハガードRF", "haggard", 220, 3)
 , new SupportMain("ハガード・タフ", "haggard", 240, 4)
+, new SupportMain("ハガード・ヴァリ", "haggard", 240, 5)
 , new SupportMain("トグルショット", "toggle", 280,1)
 , new SupportMain("トグルショットC", "toggle", 250, 2)
 , new SupportMain("トグル・トライス", "toggle", 230, 3)
