@@ -6,7 +6,7 @@
 var asmsim = asmsim || {};
 (function (asmsim) {
     var partsTable = [
-        "S",
+              "S", "S-",
         "A+", "A", "A-",
         "B+", "B", "B-",
         "C+", "C", "C-",

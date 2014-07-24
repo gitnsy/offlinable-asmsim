@@ -6,10 +6,11 @@
         this.weight = weight;
         this.rank = rank;
     }
-    data.assaultsub = [new AssaultSub("38型手榴弾", "hgre", 80,1)
+    data.assaultsub = [
+  new AssaultSub("38型手榴弾", "hgre", 80,1)
 , new AssaultSub("40型軽量手榴弾", "hgre", 90, 2)
 , new AssaultSub("41型強化手榴弾", "hgre", 140, 3)
-, new AssaultSub("41型手榴弾・改", "hgre", 110, 4)
+, new AssaultSub("41型手榴弾・改", "hgre", 120, 4)
 , new AssaultSub("39型クラッカー", "cracker", 100, 1)
 , new AssaultSub("40型クラッカー", "cracker", 110, 2)
 , new AssaultSub("42型クラッカー", "cracker", 160, 3)
