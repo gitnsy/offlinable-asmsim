@@ -41,6 +41,7 @@
 , new AssaultMain("STAR-10", "star", 240, 2)
 , new AssaultMain("STAR-10C", "star", 290, 3)
 , new AssaultMain("STAR-20", "star", 270, 4)
+, new AssaultMain("STAR-30S", "star", 300, 5)
 , new AssaultMain("SSG7-ゲイル", "ssg", 170,1)
 , new AssaultMain("SSG9-ストーム", "ssg", 190, 2)
 , new AssaultMain("SSG7-ガスト", "ssg", 210, 3)];
